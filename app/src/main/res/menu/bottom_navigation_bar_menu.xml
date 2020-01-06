@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:icon="@drawable/ic_search_button_selector"
+        android:title="" />
+    <item
+        android:icon="@drawable/ic_constellations_button_selector"
+        android:title="" />
+    <item
+        android:icon="@drawable/ic_news_button_selector"
+        android:title="" />
+    <item
+        android:icon="@drawable/ic_planet_button_selector"
+        android:title="" />
+    <item
+        android:icon="@drawable/ic_camera_button_selector"
+        android:title="" />
+</menu>
