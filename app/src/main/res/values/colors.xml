@@ -6,4 +6,8 @@
     <color name="colorWhiteish">#FAFAFA</color>
     <color name="colorWhite">#FFF</color>
     <color name="colorSpaceBar">#18192B</color>
+    <color name="colorMidGrey">#666666</color>
+    <color name="colorLightGrey">#999999</color>
+    <color name="colorC6F">#CC66FF</color>
+    <color name="colorF99">#FF9999</color>
 </resources>
