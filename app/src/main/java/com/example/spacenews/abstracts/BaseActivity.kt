@@ -92,10 +92,10 @@ abstract class BaseActivity : AppCompatActivity() {
                 }
         ].icon = getDrawable(
             when (purpose) {
-                ButtonsPurposes.NEWS -> R.drawable.ic_m_news_button_dark
-                ButtonsPurposes.SEARCH -> R.drawable.ic_m_search_button_dark
-                ButtonsPurposes.PLANET -> R.drawable.ic_m_planet_button_dark
-                ButtonsPurposes.CONSTELLATIONS -> R.drawable.ic_m_constellations_button_dark
+                ButtonsPurposes.NEWS -> R.drawable.ic_m_news_button_beige
+                ButtonsPurposes.SEARCH -> R.drawable.ic_m_search_button_beige
+                ButtonsPurposes.PLANET -> R.drawable.ic_m_planet_button_beige
+                ButtonsPurposes.CONSTELLATIONS -> R.drawable.ic_m_constellations_button_beige
             }
         )
     }

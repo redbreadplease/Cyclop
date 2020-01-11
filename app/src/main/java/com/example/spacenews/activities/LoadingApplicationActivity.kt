@@ -13,7 +13,7 @@ class LoadingApplicationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_loading_application)
         thread {
-            Thread.sleep(1200)
+            Thread.sleep(400)
             startActivity(Intent(this, NewsActivity::class.java))
         }
     }

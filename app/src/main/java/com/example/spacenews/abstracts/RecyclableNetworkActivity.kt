@@ -33,10 +33,11 @@ abstract class RecyclableNetworkActivity : RecyclableActivity() {
                 ) {
                     println("!!!!It\'s all ok!")
                     val posts: List<SpaceNewsPost?>? = response.body()
-                    val content = mutableListOf<String>()
+                    val content = mutableListOf<SpaceNewsPost?>()
                     if (posts != null)
-                        for (post: SpaceNewsPost? in posts)
-                            content.add(post?.title.toString())
+                        for (i in 0..2)
+                            for (post: SpaceNewsPost? in posts)
+                                content.add(post)
                     setAdapter(content)
                 }
 

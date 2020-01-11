@@ -3,38 +3,46 @@ package com.example.spacenews.recyclerview
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.spacenews.R
+import com.example.spacenews.retrofit.pojos.SpaceNewsPost
 
 
-class RecyclerViewAdapter (
-    private val values: MutableList<String>
+class RecyclerViewAdapter(
+    private val posts: MutableList<SpaceNewsPost?>
 ) : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
 
-    override fun getItemCount(): Int = values.size
+    override fun getItemCount(): Int = posts.size
 
-    override fun onCreateViewHolder(
-        parent: ViewGroup,
-        viewType: Int
-    ): ViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.space_post_news_item_view, parent, false)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val itemView = LayoutInflater.from(parent.context)
+            .inflate(R.layout.space_post_news_item_view, parent, false)
         return ViewHolder(itemView)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.textView?.text = values[position]
+        if (posts[position]?.title != "" && posts[position]?.title != null)
+            holder.titleView?.text = posts[position]?.title
+
+        if (posts[position]?.annotation != "" && posts[position]?.annotation != null)
+            holder.annotationView?.text = posts[position]?.annotation
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var textView: TextView? = null
+        var titleView: TextView? = null
+        var annotationView: TextView? = null
+        // var bodyView: TextView? = null
+        // var previewImageView: ImageView? = null
 
         init {
-            textView = itemView.findViewById(R.id.text_list_item)
+            titleView = itemView.findViewById(R.id.post_title)
+            annotationView = itemView.findViewById(R.id.post_annotation)
         }
     }
 
-    fun addTitle(title: String) : Unit {
-        values.add(title)
+    fun addPost(post: SpaceNewsPost) {
+        posts.add(post)
     }
 }

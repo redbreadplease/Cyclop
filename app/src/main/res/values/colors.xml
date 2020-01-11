@@ -10,4 +10,7 @@
     <color name="colorLightGrey">#999999</color>
     <color name="colorC6F">#CC66FF</color>
     <color name="colorF99">#FF9999</color>
+    <color name="colorBiegeViolet">#C6A9AF</color>
+    <color name="colorTurquoise">#00939F</color>
+    <color name="colorLightBeige">#E2C9BB</color>
 </resources>
