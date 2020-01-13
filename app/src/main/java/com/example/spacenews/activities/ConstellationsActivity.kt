@@ -10,6 +10,6 @@ class ConstellationsActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_constellations)
-        setActivityView(ButtonsPurposes.CONSTELLATIONS)
+        setupNavbar(ButtonsPurposes.CONSTELLATIONS)
     }
 }

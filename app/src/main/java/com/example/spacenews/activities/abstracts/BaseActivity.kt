@@ -2,6 +2,8 @@ package com.example.spacenews.activities.abstracts
 
 import android.content.Intent
 import android.view.MenuItem
+import android.widget.Button
+import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.get
 import com.example.spacenews.R
@@ -18,12 +20,7 @@ import kotlin.concurrent.thread
 abstract class BaseActivity : AppCompatActivity() {
     private var currentPageId: Int = -1
 
-    fun setActivityView(buttonActive: ButtonsPurposes) {
-        setupBottomNavbar()
-        setSelectedItemMenuIcon(buttonActive)
-    }
-
-    private fun setupBottomNavbar() {
+    fun setupNavbar(activeButtonPurpose: ButtonsPurposes) {
         bottom_navigation_view.setTextVisibility(false)
         bottom_navigation_view.enableAnimation(false)
         for (i in 0 until bottom_navigation_view.menu.size())
@@ -43,6 +40,22 @@ abstract class BaseActivity : AppCompatActivity() {
                 }
             }
         })
+        bottom_navigation_view.menu[
+                when (activeButtonPurpose) {
+                    ButtonsPurposes.NEWS -> 0
+                    ButtonsPurposes.SEARCH -> 1
+                    ButtonsPurposes.PLANET -> 2
+                    ButtonsPurposes.CONSTELLATIONS -> 3
+
+                }
+        ].icon = getDrawable(
+            when (activeButtonPurpose) {
+                ButtonsPurposes.NEWS -> R.drawable.ic_m_news_button_beige
+                ButtonsPurposes.SEARCH -> R.drawable.ic_m_search_button_beige
+                ButtonsPurposes.PLANET -> R.drawable.ic_m_planet_button_beige
+                ButtonsPurposes.CONSTELLATIONS -> R.drawable.ic_m_constellations_button_beige
+            }
+        )
     }
 
     private fun buttonClicked(buttonsPurpose: ButtonsPurposes?) {
@@ -80,24 +93,5 @@ abstract class BaseActivity : AppCompatActivity() {
             3 -> ButtonsPurposes.CONSTELLATIONS
             else -> null
         }
-    }
-
-    fun setSelectedItemMenuIcon(purpose: ButtonsPurposes) {
-        bottom_navigation_view.menu[
-                when (purpose) {
-                    ButtonsPurposes.NEWS -> 0
-                    ButtonsPurposes.SEARCH -> 1
-                    ButtonsPurposes.PLANET -> 2
-                    ButtonsPurposes.CONSTELLATIONS -> 3
-
-                }
-        ].icon = getDrawable(
-            when (purpose) {
-                ButtonsPurposes.NEWS -> R.drawable.ic_m_news_button_beige
-                ButtonsPurposes.SEARCH -> R.drawable.ic_m_search_button_beige
-                ButtonsPurposes.PLANET -> R.drawable.ic_m_planet_button_beige
-                ButtonsPurposes.CONSTELLATIONS -> R.drawable.ic_m_constellations_button_beige
-            }
-        )
     }
 }

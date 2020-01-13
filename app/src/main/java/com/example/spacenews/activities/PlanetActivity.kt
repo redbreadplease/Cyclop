@@ -8,7 +8,7 @@ import com.example.spacenews.activities.enums.ButtonsPurposes.PLANET
 class PlanetActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_search)
-        setActivityView(PLANET)
+        setContentView(R.layout.activity_planet)
+        setupNavbar(PLANET)
     }
 }

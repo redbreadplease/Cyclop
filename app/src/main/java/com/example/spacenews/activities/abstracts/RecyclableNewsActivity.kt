@@ -1,21 +1,18 @@
 package com.example.spacenews.activities.abstracts
 
+import android.widget.Toast
 import com.example.spacenews.retrofit.NetworkService
 import com.example.spacenews.retrofit.pojos.SpaceNewsPost
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import kotlin.concurrent.thread
 
-abstract class RecyclableNetworkActivity : RecyclableActivity() {
+abstract class RecyclableNewsActivity : RecyclableActivity() {
     fun tryToShowNews() {
-        thread {
-            setRecyclerView()
+        showNewsTitles()
+        Thread.sleep(100)
+        if (!isAdapterSet())
             showNewsTitles()
-            Thread.sleep(100)
-            if (!isAdapterSet())
-                showNewsTitles()
-        }
     }
 
     private fun showNewsTitles() {
@@ -37,10 +34,13 @@ abstract class RecyclableNetworkActivity : RecyclableActivity() {
                 }
 
                 override fun onFailure(call: Call<List<SpaceNewsPost?>>, t: Throwable) {
+                    Toast.makeText(
+                        getApplicationContext(),
+                        "Error while load. Try refreshing page", Toast.LENGTH_SHORT
+                    ).show()
                     println("!!!!Something has gone wrong")
                     t.printStackTrace()
                 }
             })
     }
-
 }

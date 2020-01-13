@@ -12,4 +12,7 @@ interface JSONPlaceHolderApi {
 
     @GET("/api/space/news.get")
     fun getPosts(): Call<List<SpaceNewsPost?>>?
+
+    @GET("/api/space/news.get?q=<q>")
+    fun getFilteredPosts(@Query("q") q: String): Call<List<SpaceNewsPost?>>?
 }
