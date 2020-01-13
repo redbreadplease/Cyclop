@@ -11,7 +11,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginTop="6dp"
+        android:background="@drawable/bgc_blackvioletblue"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -23,9 +23,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="Look. Just Space"
+                android:text="Constellations"
                 android:textColor="@color/colorWhiteish"
-                android:textSize="19sp"
+                android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -43,10 +43,24 @@
 
     </androidx.appcompat.widget.Toolbar>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="There\'re nothing yet.\nWe\'re in process of developing this module.\nThere\'ll be something like VR model that will be showing you what constellations in the direct of yours phone turn are in the space."
+        android:textColor="@color/colorWhiteish"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
         android:id="@+id/bottom_navigation_view"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:background="@drawable/bgc_blackvioletblue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/menu_all_items_non_active" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

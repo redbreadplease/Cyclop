@@ -3,7 +3,6 @@ package com.example.spacenews.recyclerview
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.spacenews.R
@@ -18,16 +17,18 @@ class RecyclerViewAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val itemView = LayoutInflater.from(parent.context)
-            .inflate(R.layout.space_post_news_item_view, parent, false)
+            .inflate(R.layout.news_item_view, parent, false)
         return ViewHolder(itemView)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         if (posts[position]?.title != "" && posts[position]?.title != null)
-            holder.titleView?.text = posts[position]?.title
+            holder.titleView?.text = posts[position]?.title!!.replace(".", "")
 
         if (posts[position]?.annotation != "" && posts[position]?.annotation != null)
             holder.annotationView?.text = posts[position]?.annotation
+        else
+            holder.annotationView?.text = posts[position]?.body!!.split('.')[0] + "."
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

@@ -1,6 +1,5 @@
-package com.example.spacenews.abstracts
+package com.example.spacenews.activities.abstracts
 
-import com.example.spacenews.enums.ButtonsPurposes
 import com.example.spacenews.retrofit.NetworkService
 import com.example.spacenews.retrofit.pojos.SpaceNewsPost
 import retrofit2.Call
@@ -9,15 +8,12 @@ import retrofit2.Response
 import kotlin.concurrent.thread
 
 abstract class RecyclableNetworkActivity : RecyclableActivity() {
-    override fun prepareActivityView() {
-        setSelectedItemMenuIcon(ButtonsPurposes.NEWS)
-    }
-
     fun tryToShowNews() {
         thread {
             setRecyclerView()
             showNewsTitles()
-            if (adapter == null)
+            Thread.sleep(100)
+            if (!isAdapterSet())
                 showNewsTitles()
         }
     }
@@ -35,9 +31,8 @@ abstract class RecyclableNetworkActivity : RecyclableActivity() {
                     val posts: List<SpaceNewsPost?>? = response.body()
                     val content = mutableListOf<SpaceNewsPost?>()
                     if (posts != null)
-                        for (i in 0..2)
-                            for (post: SpaceNewsPost? in posts)
-                                content.add(post)
+                        for (post: SpaceNewsPost? in posts)
+                            content.add(post)
                     setAdapter(content)
                 }
 

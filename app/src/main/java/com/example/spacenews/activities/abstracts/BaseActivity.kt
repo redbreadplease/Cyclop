@@ -1,8 +1,6 @@
-package com.example.spacenews.abstracts
+package com.example.spacenews.activities.abstracts
 
-import android.app.ActivityOptions
 import android.content.Intent
-import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.get
@@ -11,16 +9,21 @@ import com.example.spacenews.activities.ConstellationsActivity
 import com.example.spacenews.activities.NewsActivity
 import com.example.spacenews.activities.PlanetActivity
 import com.example.spacenews.activities.SearchActivity
-import com.example.spacenews.enums.ButtonsPurposes
+import com.example.spacenews.activities.enums.ButtonsPurposes
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import kotlinx.android.synthetic.main.activity_space_news.*
+import kotlinx.android.synthetic.main.activity_news.*
 import kotlin.concurrent.thread
 
 
 abstract class BaseActivity : AppCompatActivity() {
     private var currentPageId: Int = -1
 
-    fun setupBottomNavbar() {
+    fun setActivityView(buttonActive: ButtonsPurposes) {
+        setupBottomNavbar()
+        setSelectedItemMenuIcon(buttonActive)
+    }
+
+    private fun setupBottomNavbar() {
         bottom_navigation_view.setTextVisibility(false)
         bottom_navigation_view.enableAnimation(false)
         for (i in 0 until bottom_navigation_view.menu.size())
@@ -78,8 +81,6 @@ abstract class BaseActivity : AppCompatActivity() {
             else -> null
         }
     }
-
-    abstract fun prepareActivityView()
 
     fun setSelectedItemMenuIcon(purpose: ButtonsPurposes) {
         bottom_navigation_view.menu[

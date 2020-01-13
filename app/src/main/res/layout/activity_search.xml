@@ -8,10 +8,10 @@
     tools:context=".activities.SearchActivity">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+        android:id="@+id/top_toolbar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginTop="6dp"
+        android:background="@drawable/bgc_blackvioletblue"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -23,9 +23,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="Look. Just Space"
+                android:text="Search"
                 android:textColor="@color/colorWhiteish"
-                android:textSize="19sp"
+                android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -43,10 +43,61 @@
 
     </androidx.appcompat.widget.Toolbar>
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/search_frame"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/bgc_blackvioletblue"
+        android:foregroundGravity="center"
+        app:layout_constraintTop_toBottomOf="@id/top_toolbar">
+
+        <ImageView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:src="@drawable/ic_m_search_button_white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/search_text_request_frame"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/search_text_request_frame"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:background="@drawable/search_field_background_view"
+            android:gravity="center_vertical"
+            android:hint="Your request"
+            android:inputType="text"
+            android:paddingStart="10dp"
+            android:paddingTop="4dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="4dp"
+            android:textSize="18dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:src="@drawable/ic_m_clock_button_white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/search_text_request_frame"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
         android:id="@+id/bottom_navigation_view"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:background="@drawable/bgc_blackvioletblue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/menu_all_items_non_active" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

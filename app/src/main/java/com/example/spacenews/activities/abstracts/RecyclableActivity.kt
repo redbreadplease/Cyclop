@@ -1,4 +1,4 @@
-package com.example.spacenews.abstracts
+package com.example.spacenews.activities.abstracts
 
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -8,7 +8,7 @@ import com.example.spacenews.retrofit.pojos.SpaceNewsPost
 
 abstract class RecyclableActivity : BaseActivity() {
     private var recyclerView: RecyclerView? = null
-    var adapter: RecyclerViewAdapter? = null
+    private var adapter: RecyclerViewAdapter? = null
 
     fun setAdapter(list: MutableList<SpaceNewsPost?>) {
         adapter = RecyclerViewAdapter(list)
@@ -19,4 +19,6 @@ abstract class RecyclableActivity : BaseActivity() {
         recyclerView = findViewById(R.id.recyclerview)
         recyclerView?.layoutManager = LinearLayoutManager(this)
     }
+
+    fun isAdapterSet(): Boolean = adapter == null
 }

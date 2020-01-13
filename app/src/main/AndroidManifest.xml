@@ -13,7 +13,7 @@
         android:roundIcon="@drawable/ic_m_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.ConstellationsActivity"></activity>
+        <activity android:name=".activities.ConstellationsActivity" />
         <activity android:name=".activities.SearchActivity" />
         <activity android:name=".activities.NewsActivity" />
         <activity android:name=".activities.PlanetActivity" />
