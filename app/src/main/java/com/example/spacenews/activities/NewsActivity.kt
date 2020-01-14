@@ -4,7 +4,6 @@ import android.os.Bundle
 import com.example.spacenews.R
 import com.example.spacenews.activities.abstracts.RecyclableNewsActivity
 import com.example.spacenews.activities.enums.ButtonsPurposes.NEWS
-import kotlin.concurrent.thread
 
 class NewsActivity : RecyclableNewsActivity() {
 

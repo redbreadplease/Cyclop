@@ -17,10 +17,12 @@ abstract class RecyclableSearchActivity : RecyclableActivity() {
     var searchButton: Button? = null
 
     fun tryShowResults(userRequest: String) {
-        showFilteredPosts(userRequest)
+        val request: String = "\"" + userRequest + "\""
+
+        showFilteredPosts(request)
         Thread.sleep(100)
         if (!isAdapterSet())
-            showFilteredPosts(userRequest)
+            showFilteredPosts(request)
     }
 
     private fun showFilteredPosts(userRequest: String) {
@@ -32,7 +34,7 @@ abstract class RecyclableSearchActivity : RecyclableActivity() {
                     call: Call<List<SpaceNewsPost?>>,
                     response: Response<List<SpaceNewsPost?>>
                 ) {
-                    println("!!!!It\'s all ok!")
+                    createToast("Loaded successfully")
                     val posts: List<SpaceNewsPost?>? = response.body()
                     val content = mutableListOf<SpaceNewsPost?>()
                     if (posts != null)
@@ -42,12 +44,8 @@ abstract class RecyclableSearchActivity : RecyclableActivity() {
                 }
 
                 override fun onFailure(call: Call<List<SpaceNewsPost?>>, t: Throwable) {
-                    println("!!!!Something has gone wrong")
+                    createToast("Error while loading")
                     t.printStackTrace()
-                    Toast.makeText(
-                        getApplicationContext(),
-                        "Error while load. Try refreshing page", Toast.LENGTH_SHORT
-                    ).show()
                 }
             })
     }

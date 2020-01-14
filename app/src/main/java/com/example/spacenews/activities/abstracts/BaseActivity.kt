@@ -4,6 +4,7 @@ import android.content.Intent
 import android.view.MenuItem
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.get
 import com.example.spacenews.R
@@ -93,5 +94,12 @@ abstract class BaseActivity : AppCompatActivity() {
             3 -> ButtonsPurposes.CONSTELLATIONS
             else -> null
         }
+    }
+
+    fun createToast(notificationText: String) {
+        Toast.makeText(
+            getApplicationContext(),
+            notificationText, Toast.LENGTH_SHORT
+        ).show()
     }
 }

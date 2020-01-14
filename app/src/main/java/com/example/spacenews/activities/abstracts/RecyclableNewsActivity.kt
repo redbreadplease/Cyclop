@@ -24,7 +24,7 @@ abstract class RecyclableNewsActivity : RecyclableActivity() {
                     call: Call<List<SpaceNewsPost?>>,
                     response: Response<List<SpaceNewsPost?>>
                 ) {
-                    println("!!!!It\'s all ok!")
+                    createToast("Loaded successfully")
                     val posts: List<SpaceNewsPost?>? = response.body()
                     val content = mutableListOf<SpaceNewsPost?>()
                     if (posts != null)
@@ -34,11 +34,7 @@ abstract class RecyclableNewsActivity : RecyclableActivity() {
                 }
 
                 override fun onFailure(call: Call<List<SpaceNewsPost?>>, t: Throwable) {
-                    Toast.makeText(
-                        getApplicationContext(),
-                        "Error while load. Try refreshing page", Toast.LENGTH_SHORT
-                    ).show()
-                    println("!!!!Something has gone wrong")
+                    createToast("Error while loading")
                     t.printStackTrace()
                 }
             })

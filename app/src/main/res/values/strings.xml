@@ -1,2 +1,3 @@
 <resources>
+    <string name="noPostsFound">No news posts found</string>
 </resources>

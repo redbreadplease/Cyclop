@@ -1,5 +1,6 @@
 package com.example.spacenews.activities.abstracts
 
+import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -21,8 +22,17 @@ abstract class RecyclableActivity : BaseActivity() {
     }
 
     fun setAdapter(list: MutableList<SpaceNewsPost?>) {
-        adapter = RecyclerViewAdapter(list)
-        recyclerView?.adapter = adapter
+        when (list.size) {
+            0 -> {
+                findViewById<TextView>(R.id.no_posts_found_text_view).setText(R.string.noPostsFound)
+                recyclerView?.adapter = null
+            }
+            else -> {
+                adapter = RecyclerViewAdapter(list)
+                recyclerView?.adapter = adapter
+                findViewById<TextView>(R.id.no_posts_found_text_view).setText("")
+            }
+        }
     }
 
     private fun setRecyclerView() {
