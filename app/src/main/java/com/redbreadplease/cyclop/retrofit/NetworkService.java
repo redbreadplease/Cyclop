@@ -1,4 +1,4 @@
-package com.example.spacenews.retrofit;
+package com.redbreadplease.cyclop.retrofit;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

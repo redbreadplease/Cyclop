@@ -1,13 +1,13 @@
-package com.example.spacenews.activities.abstracts
+package com.redbreadplease.cyclop.activities.abstracts
 
 import android.content.Context
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
-import android.widget.Toast
-import com.example.spacenews.R
-import com.example.spacenews.retrofit.NetworkService
-import com.example.spacenews.retrofit.pojos.SpaceNewsPost
+import com.redbreadplease.cyclop.R
+import com.redbreadplease.cyclop.retrofit.NetworkService
+import com.redbreadplease.cyclop.retrofit.pojos.SpaceNewsPost
+
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

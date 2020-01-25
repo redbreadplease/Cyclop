@@ -1,4 +1,4 @@
-package com.example.spacenews.activities.enums;
+package com.redbreadplease.cyclop.activities.enums;
 
 public enum ButtonsPurposes {
     NEWS, CONSTELLATIONS, SEARCH, PLANET

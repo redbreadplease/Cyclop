@@ -1,9 +1,9 @@
-package com.example.spacenews.activities
+package com.redbreadplease.cyclop.activities
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.spacenews.R
+import com.redbreadplease.cyclop.R
 import kotlin.concurrent.thread
 
 

@@ -1,16 +1,21 @@
-package com.example.spacenews.recyclerview
+package com.redbreadplease.cyclop.recyclerview
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.spacenews.R
-import com.example.spacenews.retrofit.pojos.SpaceNewsPost
+import com.redbreadplease.cyclop.R
+import com.redbreadplease.cyclop.retrofit.pojos.SpaceNewsPost
+import com.squareup.picasso.Picasso
+import java.security.AccessController.getContext
 
 
 class RecyclerViewAdapter(
-    private val posts: MutableList<SpaceNewsPost?>
+    private val posts: MutableList<SpaceNewsPost?>,
+    private val applicationContext: Context
 ) : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
 
     override fun getItemCount(): Int = posts.size
@@ -29,17 +34,25 @@ class RecyclerViewAdapter(
             holder.annotationView?.text = posts[position]?.annotation
         else
             holder.annotationView?.text = posts[position]?.body!!.split('.')[0] + "."
+
+        if (posts[position]?.photo_urls != "" && posts[position]?.photo_urls != null) {
+            val url = posts[position]?.photo_urls?.split("||")?.get(0)
+            Picasso.with(applicationContext).load(url).into(holder.previewImageView)
+        } else
+            holder.previewImageView = null
+
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var titleView: TextView? = null
         var annotationView: TextView? = null
         // var bodyView: TextView? = null
-        // var previewImageView: ImageView? = null
+        var previewImageView: ImageView? = null
 
         init {
             titleView = itemView.findViewById(R.id.post_title)
             annotationView = itemView.findViewById(R.id.post_annotation)
+            previewImageView = itemView.findViewById(R.id.post_preview_img)
         }
     }
 

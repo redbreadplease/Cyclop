@@ -1,6 +1,6 @@
-package com.example.spacenews.retrofit
+package com.redbreadplease.cyclop.retrofit
 
-import com.example.spacenews.retrofit.pojos.SpaceNewsPost
+import com.redbreadplease.cyclop.retrofit.pojos.SpaceNewsPost
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query

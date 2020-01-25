@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.spacenews">
+    package="com.redbreadplease.cyclop">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -8,15 +8,16 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_m_logo"
+        android:icon="@drawable/ic_m_eye_logo_2"
         android:label="Cyclop"
-        android:roundIcon="@drawable/ic_m_logo"
+        android:roundIcon="@drawable/ic_m_eye_logo_2"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".activities.ConstellationsActivity" />
         <activity android:name=".activities.SearchActivity" />
         <activity android:name=".activities.NewsActivity" />
-        <activity android:name=".activities.PlanetActivity" />
+        <activity android:name="com.redbreadplease.cyclop.activities.PlanetGalleryPhotoActivity" />
+        <activity android:name="com.redbreadplease.cyclop.activities.PlanetActivity" />
         <activity android:name=".activities.LoadingApplicationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

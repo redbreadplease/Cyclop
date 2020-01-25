@@ -1,10 +1,10 @@
-package com.example.spacenews.activities
+package com.redbreadplease.cyclop.activities
 
 import android.os.Bundle
 import android.widget.EditText
-import com.example.spacenews.R
-import com.example.spacenews.activities.abstracts.RecyclableSearchActivity
-import com.example.spacenews.activities.enums.ButtonsPurposes.SEARCH
+import com.redbreadplease.cyclop.R
+import com.redbreadplease.cyclop.activities.abstracts.RecyclableSearchActivity
+import com.redbreadplease.cyclop.activities.enums.ButtonsPurposes.SEARCH
 import kotlin.concurrent.thread
 
 class SearchActivity : RecyclableSearchActivity() {

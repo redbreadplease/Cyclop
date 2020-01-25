@@ -1,9 +1,9 @@
-package com.example.spacenews.activities
+package com.redbreadplease.cyclop.activities
 
 import android.os.Bundle
-import com.example.spacenews.R
-import com.example.spacenews.activities.abstracts.BaseActivity
-import com.example.spacenews.activities.enums.ButtonsPurposes
+import com.redbreadplease.cyclop.R
+import com.redbreadplease.cyclop.activities.abstracts.BaseActivity
+import com.redbreadplease.cyclop.activities.enums.ButtonsPurposes
 
 class ConstellationsActivity : BaseActivity() {
 

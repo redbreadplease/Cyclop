@@ -1,4 +1,4 @@
-package com.example.spacenews.retrofit.pojos
+package com.redbreadplease.cyclop.retrofit.pojos
 
 import com.google.gson.annotations.Expose
 

@@ -1,19 +1,17 @@
-package com.example.spacenews.activities.abstracts
+package com.redbreadplease.cyclop.activities.abstracts
 
 import android.content.Intent
 import android.view.MenuItem
-import android.widget.Button
-import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.get
-import com.example.spacenews.R
-import com.example.spacenews.activities.ConstellationsActivity
-import com.example.spacenews.activities.NewsActivity
-import com.example.spacenews.activities.PlanetActivity
-import com.example.spacenews.activities.SearchActivity
-import com.example.spacenews.activities.enums.ButtonsPurposes
+import com.redbreadplease.cyclop.R
+import com.redbreadplease.cyclop.activities.ConstellationsActivity
+import com.redbreadplease.cyclop.activities.NewsActivity
+import com.redbreadplease.cyclop.activities.SearchActivity
+import com.redbreadplease.cyclop.activities.enums.ButtonsPurposes
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.redbreadplease.cyclop.activities.PlanetActivity
 import kotlinx.android.synthetic.main.activity_news.*
 import kotlin.concurrent.thread
 

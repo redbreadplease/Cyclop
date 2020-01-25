@@ -1,13 +1,13 @@
-package com.example.spacenews.activities.abstracts
+package com.redbreadplease.cyclop.activities.abstracts
 
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import com.example.spacenews.R
-import com.example.spacenews.activities.enums.ButtonsPurposes
-import com.example.spacenews.recyclerview.RecyclerViewAdapter
-import com.example.spacenews.retrofit.pojos.SpaceNewsPost
+import com.redbreadplease.cyclop.R
+import com.redbreadplease.cyclop.activities.enums.ButtonsPurposes
+import com.redbreadplease.cyclop.recyclerview.RecyclerViewAdapter
+import com.redbreadplease.cyclop.retrofit.pojos.SpaceNewsPost
 import kotlin.concurrent.thread
 
 abstract class RecyclableActivity : BaseActivity() {
@@ -28,7 +28,7 @@ abstract class RecyclableActivity : BaseActivity() {
                 recyclerView?.adapter = null
             }
             else -> {
-                adapter = RecyclerViewAdapter(list)
+                adapter = RecyclerViewAdapter(list, applicationContext)
                 recyclerView?.adapter = adapter
                 findViewById<TextView>(R.id.no_posts_found_text_view).setText("")
             }

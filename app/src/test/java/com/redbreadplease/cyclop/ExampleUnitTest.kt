@@ -1,8 +1,12 @@
-package com.example.spacenews
+package com.redbreadplease.cyclop
 
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import org.junit.Test
 
 import org.junit.Assert.*
+import java.io.InputStream
+import java.net.URL
 
 /**
  * Example local unit test, which will execute on the development machine (host).
