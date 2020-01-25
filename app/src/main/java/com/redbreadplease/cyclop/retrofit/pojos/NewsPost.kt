@@ -5,7 +5,7 @@ import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
 
-class SpaceNewsPost {
+class NewsPost {
     @SerializedName("annotation")
     @Expose
     var annotation: String? = null

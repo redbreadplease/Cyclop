@@ -8,13 +8,12 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.redbreadplease.cyclop.R
-import com.redbreadplease.cyclop.retrofit.pojos.SpaceNewsPost
+import com.redbreadplease.cyclop.retrofit.pojos.NewsPost
 import com.squareup.picasso.Picasso
-import java.security.AccessController.getContext
 
 
 class RecyclerViewAdapter(
-    private val posts: MutableList<SpaceNewsPost?>,
+    private val posts: MutableList<NewsPost?>,
     private val applicationContext: Context
 ) : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
 
@@ -56,7 +55,7 @@ class RecyclerViewAdapter(
         }
     }
 
-    fun addPost(post: SpaceNewsPost) {
+    fun addPost(post: NewsPost) {
         posts.add(post)
     }
 }

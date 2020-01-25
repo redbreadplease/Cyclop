@@ -13,12 +13,21 @@
         android:roundIcon="@drawable/ic_m_eye_logo_2"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.ConstellationsActivity" />
-        <activity android:name=".activities.SearchPostsActivity" />
-        <activity android:name=".activities.NewsPostsActivity" />
-        <activity android:name="com.redbreadplease.cyclop.activities.PlanetGalleryPhotoActivity" />
-        <activity android:name="com.redbreadplease.cyclop.activities.PlanetActivity" />
-        <activity android:name=".activities.LoadingApplicationActivity">
+        <activity
+            android:name=".activities.NewsActivity"
+            android:theme="@style/noAnimTheme" />
+        <activity
+            android:name=".activities.SearchActivity"
+            android:theme="@style/noAnimTheme" />
+        <activity
+            android:name=".activities.GalleryActivity"
+            android:theme="@style/noAnimTheme" />
+        <activity
+            android:name=".activities.ARMenuActivity"
+            android:theme="@style/noAnimTheme" />
+        <activity
+            android:name=".activities.LoadingActivity"
+            android:theme="@style/noAnimTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
