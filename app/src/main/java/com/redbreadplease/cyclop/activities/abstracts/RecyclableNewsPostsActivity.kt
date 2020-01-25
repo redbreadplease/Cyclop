@@ -7,7 +7,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 
-abstract class RecyclableNewsActivity : RecyclableActivity() {
+abstract class RecyclableNewsPostsActivity : RecyclablePostsActivity() {
     fun tryToShowNews() {
         showNewsTitles()
         Thread.sleep(100)

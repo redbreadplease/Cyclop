@@ -1,3 +1,4 @@
 <resources>
     <string name="noPostsFound">No news posts found</string>
+    <string name="noPhotoFound">No photos found</string>
 </resources>

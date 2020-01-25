@@ -13,7 +13,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 
-abstract class RecyclableSearchActivity : RecyclableActivity() {
+abstract class RecyclableSearchPostsActivity : RecyclablePostsActivity() {
     var searchButton: Button? = null
 
     fun tryShowResults(userRequest: String) {

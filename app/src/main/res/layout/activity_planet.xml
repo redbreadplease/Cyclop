@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/ic_space_background_2"
-    tools:context=".activities.SearchActivity">
+    tools:context=".activities.SearchPostsActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -51,11 +51,28 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/menu_all_items_non_active" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_images"
+    <TextView
+        android:id="@+id/no_photo_found_text_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+        android:layout_marginTop="90dp"
+        android:layout_marginBottom="50dp"
+        android:gravity="center"
+        android:text="@string/noPostsFound"
+        android:textColor="@color/colorWhiteish"
+        android:textSize="26dp" />
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/gallery_swipe_refresher"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="50dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/gallery_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,11 +3,11 @@ package com.redbreadplease.cyclop.activities
 import android.os.Bundle
 import android.widget.EditText
 import com.redbreadplease.cyclop.R
-import com.redbreadplease.cyclop.activities.abstracts.RecyclableSearchActivity
+import com.redbreadplease.cyclop.activities.abstracts.RecyclableSearchPostsActivity
 import com.redbreadplease.cyclop.activities.enums.ButtonsPurposes.SEARCH
 import kotlin.concurrent.thread
 
-class SearchActivity : RecyclableSearchActivity() {
+class SearchPostsActivity : RecyclableSearchPostsActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)

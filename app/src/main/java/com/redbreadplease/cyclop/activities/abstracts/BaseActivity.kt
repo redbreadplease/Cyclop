@@ -7,8 +7,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.get
 import com.redbreadplease.cyclop.R
 import com.redbreadplease.cyclop.activities.ConstellationsActivity
-import com.redbreadplease.cyclop.activities.NewsActivity
-import com.redbreadplease.cyclop.activities.SearchActivity
+import com.redbreadplease.cyclop.activities.NewsPostsActivity
+import com.redbreadplease.cyclop.activities.SearchPostsActivity
 import com.redbreadplease.cyclop.activities.enums.ButtonsPurposes
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.redbreadplease.cyclop.activities.PlanetActivity
@@ -66,10 +66,10 @@ abstract class BaseActivity : AppCompatActivity() {
                     this.getString(R.string.app_name)
                 )
                 val bundle: Bundle = options.toBundle()*/
-                startActivity(Intent(this, NewsActivity::class.java))
+                startActivity(Intent(this, NewsPostsActivity::class.java))
             }
             ButtonsPurposes.SEARCH
-            -> startActivity(Intent(this, SearchActivity::class.java))
+            -> startActivity(Intent(this, SearchPostsActivity::class.java))
             ButtonsPurposes.PLANET
             -> startActivity(Intent(this, PlanetActivity::class.java))
             ButtonsPurposes.CONSTELLATIONS

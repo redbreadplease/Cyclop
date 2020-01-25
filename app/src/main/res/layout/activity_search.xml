@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/ic_space_background_2"
-    tools:context=".activities.SearchActivity">
+    tools:context=".activities.SearchPostsActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/top_toolbar"

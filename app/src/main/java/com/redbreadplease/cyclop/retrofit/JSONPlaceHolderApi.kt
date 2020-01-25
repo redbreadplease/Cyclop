@@ -1,5 +1,6 @@
 package com.redbreadplease.cyclop.retrofit
 
+import com.redbreadplease.cyclop.retrofit.pojos.GalleryPhoto
 import com.redbreadplease.cyclop.retrofit.pojos.SpaceNewsPost
 import retrofit2.Call
 import retrofit2.http.GET
@@ -15,4 +16,7 @@ interface JSONPlaceHolderApi {
 
     @GET("/api/space/news.get")
     fun getFilteredPosts(@Query("q") q: String): Call<List<SpaceNewsPost?>>?
+
+    @GET("/api/cyclop/gallery.get")
+    fun getCyclopGalleryPhotos(): Call<List<GalleryPhoto?>>?
 }
