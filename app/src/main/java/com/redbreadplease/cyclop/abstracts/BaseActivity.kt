@@ -97,4 +97,6 @@ abstract class BaseActivity : AppCompatActivity() {
             notificationText, Toast.LENGTH_SHORT
         ).show()
     }
+
+    abstract fun prepareActivityView()
 }
