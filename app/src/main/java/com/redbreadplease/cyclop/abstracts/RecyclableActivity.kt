@@ -41,9 +41,12 @@ abstract class RecyclableActivity : BaseActivity() {
                 setGallerySwipeRefresher()
             }
             ActivityType.CONSTELLATIONS -> {
+                setARMenuActivityClickableZones()
             }
         }
     }
+
+    abstract fun setARMenuActivityClickableZones()
 
     abstract fun setSearchActivityClickableZones()
 

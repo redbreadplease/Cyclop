@@ -13,6 +13,7 @@
         android:roundIcon="@drawable/ic_m_eye_logo_2"
         android:supportsRtl="true"
         android:theme="@style/noAnimTheme">
+        <activity android:name=".activities.ARSpaceActivity" />
         <activity android:name=".activities.NewsActivity" />
         <activity android:name=".activities.SearchActivity" />
         <activity android:name=".activities.GalleryActivity" />

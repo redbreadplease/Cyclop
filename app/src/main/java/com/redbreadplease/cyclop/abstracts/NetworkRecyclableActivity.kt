@@ -1,11 +1,14 @@
 package com.redbreadplease.cyclop.abstracts
 
 import android.content.Context
+import android.content.Intent
+import android.os.Build
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
 import com.redbreadplease.cyclop.R
+import com.redbreadplease.cyclop.activities.ARSpaceActivity
 import com.redbreadplease.cyclop.retrofit.NetworkService
 import com.redbreadplease.cyclop.retrofit.pojos.GalleryPhoto
 import com.redbreadplease.cyclop.retrofit.pojos.NewsPost
@@ -16,7 +19,8 @@ import retrofit2.Response
 import kotlin.concurrent.thread
 
 abstract class NetworkRecyclableActivity : RecyclableActivity() {
-    var searchButton: Button? = null
+    private var searchButton: Button? = null
+    private var entranceARModeButton: Button? = null
 
     override fun tryToShowNews() {
         findViewById<GifImageView>(R.id.loading_gif).setVisibility(View.VISIBLE)
@@ -46,19 +50,34 @@ abstract class NetworkRecyclableActivity : RecyclableActivity() {
     override fun setSearchActivityClickableZones() {
         if (searchButton == null) {
             searchButton = findViewById(R.id.search_posts_button)
-            searchButton?.setOnClickListener {
-                try {
-                    val imm =
-                        getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-                    imm.hideSoftInputFromWindow(currentFocus!!.windowToken, 0)
-                } catch (e: Exception) { // TODO: handle exception
-                }
-
-                val searchFieldText: String =
-                    findViewById<EditText>(R.id.search_text_request_frame).getText().toString()
-                tryToShowResults(searchFieldText)
+        }
+        searchButton?.setOnClickListener {
+            try {
+                val imm =
+                    getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                imm.hideSoftInputFromWindow(currentFocus!!.windowToken, 0)
+            } catch (e: Exception) { // TODO: handle exception
             }
 
+            val searchFieldText: String =
+                findViewById<EditText>(R.id.search_text_request_frame).getText().toString()
+            tryToShowResults(searchFieldText)
+        }
+    }
+
+    override fun setARMenuActivityClickableZones() {
+        if (entranceARModeButton == null) {
+            entranceARModeButton = findViewById(R.id.ar_entrance_button)
+        }
+        entranceARModeButton?.setOnClickListener {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                // Apply activity transition
+                createToast("You\'re able to apply transition")
+            } else {
+                // Swap without transition
+                createToast("You have to swap without transition")
+            }
+            startActivity(Intent(this, ARSpaceActivity::class.java))
         }
     }
 
@@ -140,7 +159,8 @@ abstract class NetworkRecyclableActivity : RecyclableActivity() {
     }
 
     override fun handleSearchRequest() {
-        val requestBody: String = findViewById<EditText>(R.id.search_text_request_frame).getText().toString()
+        val requestBody: String =
+            findViewById<EditText>(R.id.search_text_request_frame).getText().toString()
         if (requestBody != "")
             thread {
                 tryToShowResults(requestBody)

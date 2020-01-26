@@ -9,13 +9,14 @@ import kotlin.concurrent.thread
 class ARMenuActivity : NetworkRecyclableActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_armenu)
+        setContentView(R.layout.activity_ar_menu)
         prepareActivityView()
     }
 
     override fun prepareActivityView() {
         thread {
             setActivityView(ActivityType.CONSTELLATIONS)
+            setARMenuActivityClickableZones()
         }
     }
 }
