@@ -12,22 +12,12 @@
         android:label="Cyclop"
         android:roundIcon="@drawable/ic_m_eye_logo_2"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity
-            android:name=".activities.NewsActivity"
-            android:theme="@style/noAnimTheme" />
-        <activity
-            android:name=".activities.SearchActivity"
-            android:theme="@style/noAnimTheme" />
-        <activity
-            android:name=".activities.GalleryActivity"
-            android:theme="@style/noAnimTheme" />
-        <activity
-            android:name=".activities.ARMenuActivity"
-            android:theme="@style/noAnimTheme" />
-        <activity
-            android:name=".activities.LoadingActivity"
-            android:theme="@style/noAnimTheme">
+        android:theme="@style/noAnimTheme">
+        <activity android:name=".activities.NewsActivity" />
+        <activity android:name=".activities.SearchActivity" />
+        <activity android:name=".activities.GalleryActivity" />
+        <activity android:name=".activities.ARMenuActivity" />
+        <activity android:name=".activities.LoadingActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

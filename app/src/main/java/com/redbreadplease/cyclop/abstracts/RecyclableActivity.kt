@@ -1,5 +1,6 @@
 package com.redbreadplease.cyclop.abstracts
 
+import android.view.View
 import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -11,6 +12,7 @@ import com.redbreadplease.cyclop.recyclerview.GalleryRecyclerviewAdapter
 import com.redbreadplease.cyclop.recyclerview.RecyclerViewAdapter
 import com.redbreadplease.cyclop.retrofit.pojos.GalleryPhoto
 import com.redbreadplease.cyclop.retrofit.pojos.NewsPost
+import pl.droidsonroids.gif.GifImageView
 import kotlin.concurrent.thread
 
 abstract class RecyclableActivity : BaseActivity() {
@@ -39,7 +41,6 @@ abstract class RecyclableActivity : BaseActivity() {
                 setGallerySwipeRefresher()
             }
             ActivityType.CONSTELLATIONS -> {
-
             }
         }
     }
@@ -47,29 +48,31 @@ abstract class RecyclableActivity : BaseActivity() {
     abstract fun setSearchActivityClickableZones()
 
     fun setNewsAdapter(list: MutableList<NewsPost?>) {
+        findViewById<GifImageView>(R.id.loading_gif).setVisibility(View.INVISIBLE)
         when (list.size) {
             0 -> {
-                findViewById<TextView>(R.id.no_posts_found_text_view).setText(R.string.noPostsFound)
+                findViewById<TextView>(R.id.no_posts_found_text_view).setVisibility(View.VISIBLE)
                 newsRecyclerview?.adapter = null
             }
             else -> {
                 newsAdapter = RecyclerViewAdapter(list, applicationContext)
                 newsRecyclerview?.adapter = newsAdapter
-                findViewById<TextView>(R.id.no_posts_found_text_view).setText("")
+                findViewById<TextView>(R.id.no_posts_found_text_view).setVisibility(View.INVISIBLE)
             }
         }
     }
 
     fun setGalleryAdapter(list: MutableList<GalleryPhoto?>) {
+        findViewById<GifImageView>(R.id.loading_gif).setVisibility(View.INVISIBLE)
         when (list.size) {
             0 -> {
-                findViewById<TextView>(R.id.no_photo_found_text_view).setText(R.string.noPhotoFound)
+                findViewById<TextView>(R.id.no_photo_found_text_view).setVisibility(View.VISIBLE)
                 galleryRecyclerview?.adapter = null
             }
             else -> {
                 galleryAdapter = GalleryRecyclerviewAdapter(list, applicationContext)
                 galleryRecyclerview?.adapter = galleryAdapter
-                findViewById<TextView>(R.id.no_photo_found_text_view).setText("")
+                findViewById<TextView>(R.id.no_photo_found_text_view).setVisibility(View.INVISIBLE)
             }
         }
     }

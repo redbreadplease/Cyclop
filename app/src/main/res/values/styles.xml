@@ -10,6 +10,6 @@
 
     <style name="noAnimTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:statusBarColor">@color/colorSpaceBar</item>
     </style>
-
 </resources>

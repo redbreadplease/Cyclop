@@ -1,6 +1,7 @@
 package com.redbreadplease.cyclop.abstracts
 
 import android.content.Context
+import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
@@ -8,6 +9,7 @@ import com.redbreadplease.cyclop.R
 import com.redbreadplease.cyclop.retrofit.NetworkService
 import com.redbreadplease.cyclop.retrofit.pojos.GalleryPhoto
 import com.redbreadplease.cyclop.retrofit.pojos.NewsPost
+import pl.droidsonroids.gif.GifImageView
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -17,6 +19,7 @@ abstract class NetworkRecyclableActivity : RecyclableActivity() {
     var searchButton: Button? = null
 
     override fun tryToShowNews() {
+        findViewById<GifImageView>(R.id.loading_gif).setVisibility(View.VISIBLE)
         showNews()
         Thread.sleep(100)
         if (!isNewsAdapterSet())
@@ -24,6 +27,7 @@ abstract class NetworkRecyclableActivity : RecyclableActivity() {
     }
 
     override fun tryToShowResults(userRequest: String) {
+        findViewById<GifImageView>(R.id.loading_gif).setVisibility(View.VISIBLE)
         val request: String = "\"" + userRequest + "\""
         showFilteredPosts(request)
         Thread.sleep(100)
@@ -32,6 +36,7 @@ abstract class NetworkRecyclableActivity : RecyclableActivity() {
     }
 
     override fun tryToShowGallery() {
+        findViewById<GifImageView>(R.id.loading_gif).setVisibility(View.VISIBLE)
         showPhotos()
         Thread.sleep(100)
         if (!isGalleryAdapterSet())

@@ -8,33 +8,34 @@
     tools:context=".activities.LoadingActivity">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/top_toolbar"
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@drawable/bgc_blackvioletblue"
+        android:layout_height="@dimen/defaultToolbarHeight"
+        android:background="@color/colorSpaceBar"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="Search"
+                android:layout_height="wrap_content"
+                android:text="@string/searchMenuName"
                 android:textColor="@color/colorWhiteish"
-                android:textSize="20sp"
+                android:textSize="@dimen/defaultToolbarTextSize"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginEnd="10dp"
-                android:src="@drawable/ic_m_eye_logo_2_cut"
+                android:layout_width="@dimen/defaultToolbarHeight"
+                android:layout_height="@dimen/defaultToolbarHeight"
+                android:layout_marginEnd="@dimen/defaultToolbarLogoMarginRight"
+                android:contentDescription="@string/toolbarLogoDescription"
+                android:src="@drawable/eye"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -46,62 +47,75 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/search_frame"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="@drawable/bgc_blackvioletblue"
-        android:foregroundGravity="center"
-        app:layout_constraintTop_toBottomOf="@id/top_toolbar">
+        android:layout_height="@dimen/defaultSearchFieldHeight"
+        android:background="@color/colorSpaceBar"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
 
         <EditText
             android:id="@+id/search_text_request_frame"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="50dp"
-            android:gravity="center_vertical"
-            android:hint="Your request"
+            android:layout_marginStart="@dimen/searchFrameMarginStart"
+            android:backgroundTint="@android:color/transparent"
+            android:hint="@string/searchFrameHint"
+            android:importantForAutofill="no"
             android:inputType="text"
-            android:paddingStart="10dp"
-            android:paddingTop="4dp"
-            android:paddingEnd="10dp"
-            android:paddingBottom="4dp"
+            android:maxWidth="@dimen/searchFrameMaxWidth"
+            android:paddingStart="@dimen/searchFrameHorizontalPadding"
+            android:paddingTop="@dimen/searchFrameVerticalPadding"
+            android:paddingEnd="@dimen/searchFrameHorizontalPadding"
+            android:paddingBottom="@dimen/searchFrameVerticalPadding"
             android:textColor="@color/colorWhiteish"
             android:textColorHint="@color/colorWhiteish"
-            android:textSize="18dp"
+            android:textSize="@dimen/defaultTextSize"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/search_posts_button"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
+            android:layout_width="@dimen/searchButtonSideSize"
+            android:layout_height="@dimen/searchButtonSideSize"
+            android:layout_marginEnd="@dimen/searchButtonEndMargin"
             android:background="@drawable/ic_m_search_button_white"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toRightOf="@id/search_text_request_frame"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/loading_gif"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:src="@drawable/loading"
+        app:layout_constraintBottom_toTopOf="@id/bottom_navigation_view"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
     <TextView
         android:id="@+id/no_posts_found_text_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="90dp"
-        android:layout_marginBottom="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/noPostsFound"
         android:textColor="@color/colorWhiteish"
-        android:textSize="26dp" />
+        android:textSize="@dimen/warningTextSize"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@id/swipe_refresher"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/swipe_refresher" />
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipe_refresher"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="90dp"
-        android:layout_marginBottom="50dp">
+        android:layout_marginTop="@dimen/summaryOfSearchFieldAndToolbarHeights"
+        android:layout_marginBottom="@dimen/defaultNavbarHeight">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview"
@@ -112,9 +126,13 @@
     <com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
         android:id="@+id/bottom_navigation_view"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@drawable/bgc_blackvioletblue"
+        android:layout_height="@dimen/defaultNavbarHeight"
+        android:background="@color/colorSpaceBar"
+        android:focusableInTouchMode="false"
+        app:labelVisibilityMode="unlabeled"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:menu="@menu/menu_all_items_non_active" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

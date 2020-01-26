@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="AREntranceLogoSideSize">150dp</dimen>
+    <dimen name="defaultToolbarHeight">50dp</dimen>
+    <dimen name="defaultNavbarHeight">50dp</dimen>
+    <dimen name="defaultSearchFieldHeight">40dp</dimen>
+    <dimen name="summaryOfSearchFieldAndToolbarHeights">90dp</dimen>
+    <dimen name="defaultToolbarTextSize">20sp</dimen>
+    <dimen name="defaultToolbarLogoMarginRight">10dp</dimen>
+    <dimen name="defaultTextSize">18sp</dimen>
+    <dimen name="warningTextSize">26sp</dimen>
+    <dimen name="searchFrameMarginStart">15dp</dimen>
+    <dimen name="searchFrameMaxWidth">200dp</dimen>
+    <dimen name="searchFrameHorizontalPadding">10dp</dimen>
+    <dimen name="searchFrameVerticalPadding">4dp</dimen>
+    <dimen name="searchButtonSideSize">28dp</dimen>
+    <dimen name="searchButtonEndMargin">20dp</dimen>
+</resources>
