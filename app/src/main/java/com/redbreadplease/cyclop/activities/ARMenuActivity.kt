@@ -9,7 +9,7 @@ import kotlin.concurrent.thread
 class ARMenuActivity : NetworkRecyclableActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_constellations)
+        setContentView(R.layout.activity_armenu)
         prepareActivityView()
     }
 

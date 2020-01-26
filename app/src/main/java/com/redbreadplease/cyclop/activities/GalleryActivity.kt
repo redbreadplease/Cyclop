@@ -9,7 +9,7 @@ import kotlin.concurrent.thread
 class GalleryActivity : NetworkRecyclableActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_planet)
+        setContentView(R.layout.activity_gallery)
         prepareActivityView()
     }
 
