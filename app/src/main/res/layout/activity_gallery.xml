@@ -11,7 +11,7 @@
         android:layout_height="match_parent"
         android:contentDescription="@string/defaultBackgroundDescription"
         android:scaleType="centerCrop"
-        android:src="@drawable/defaultBackground"
+        android:src="@drawable/bgc_darkvioletblue"
         app:layout_constraintBottom_toTopOf="@id/bottom_navigation_view"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -34,7 +34,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/newsMenuName"
+                android:text="@string/galleryMenuName"
                 android:textColor="@color/colorWhiteish"
                 android:textSize="@dimen/defaultToolbarTextSize"
                 app:layout_constraintBottom_toBottomOf="parent"

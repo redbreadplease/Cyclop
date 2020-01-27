@@ -1,4 +1,4 @@
-package com.redbreadplease.cyclop.AR
+package com.redbreadplease.cyclop.ar
 
 import com.badlogic.gdx.ApplicationAdapter
 import com.badlogic.gdx.Gdx
@@ -11,6 +11,7 @@ import com.badlogic.gdx.graphics.g3d.attributes.ColorAttribute
 import com.badlogic.gdx.graphics.g3d.environment.DirectionalLight
 import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder
 import com.badlogic.gdx.math.Vector3
+import com.badlogic.gdx.scenes.scene2d.ui.Label
 
 
 class ARStars : ApplicationAdapter() {
@@ -21,6 +22,7 @@ class ARStars : ApplicationAdapter() {
     private var modelBatch: ModelBatch? = null
     private var environment: Environment? = null
     private var degrees: Float = 0f
+    private var label: Label? = null
 
     override fun create() {
         setEnvironment()

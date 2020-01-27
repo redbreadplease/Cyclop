@@ -3,7 +3,7 @@ package com.redbreadplease.cyclop.activities
 import android.os.Bundle
 import com.badlogic.gdx.backends.android.AndroidApplication
 import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration
-import com.redbreadplease.cyclop.AR.ARStars
+import com.redbreadplease.cyclop.ar.ARStars
 
 
 class ARSpaceActivity : AndroidApplication() {
