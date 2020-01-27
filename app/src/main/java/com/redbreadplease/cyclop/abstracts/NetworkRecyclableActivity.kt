@@ -77,11 +77,11 @@ abstract class NetworkRecyclableActivity : RecyclableActivity() {
         }
         entranceARModeButton?.setOnClickListener {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                // TODO
                 // Apply activity transition
-                createToast("You\'re able to apply transition")
             } else {
+                // TODO
                 // Swap without transition
-                createToast("You have to swap without transition")
             }
             startActivity(Intent(this, ARSpaceActivity::class.java))
         }

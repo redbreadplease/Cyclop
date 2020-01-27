@@ -1,13 +1,19 @@
 package com.redbreadplease.cyclop.activities
 
-import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
-import com.redbreadplease.cyclop.R
-import kotlin.concurrent.thread
+import com.badlogic.gdx.backends.android.AndroidApplication
+import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration
+import com.redbreadplease.cyclop.AR.ARStars
 
+
+class ARSpaceActivity : AndroidApplication() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        initialize(ARStars(), AndroidApplicationConfiguration())
+    }
+}
+
+/*
 class ARSpaceActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,3 +42,4 @@ class ARSpaceActivity : AppCompatActivity() {
         }
     }
 }
+ */
