@@ -23,7 +23,9 @@ abstract class NetworkRecyclableActivity : RecyclableActivity() {
     private var entranceARModeButton: Button? = null
 
     override fun tryToShowNews() {
-        findViewById<GifImageView>(R.id.loading_gif).setVisibility(View.VISIBLE)
+        runOnUiThread {
+            findViewById<GifImageView>(R.id.loading_gif).setVisibility(View.VISIBLE)
+        }
         showNews()
         Thread.sleep(100)
         if (!isNewsAdapterSet())
@@ -31,7 +33,9 @@ abstract class NetworkRecyclableActivity : RecyclableActivity() {
     }
 
     override fun tryToShowResults(userRequest: String) {
-        findViewById<GifImageView>(R.id.loading_gif).setVisibility(View.VISIBLE)
+        runOnUiThread {
+            findViewById<GifImageView>(R.id.loading_gif).setVisibility(View.VISIBLE)
+        }
         val request: String = "\"" + userRequest + "\""
         showFilteredPosts(request)
         Thread.sleep(100)
@@ -40,7 +44,9 @@ abstract class NetworkRecyclableActivity : RecyclableActivity() {
     }
 
     override fun tryToShowGallery() {
-        findViewById<GifImageView>(R.id.loading_gif).setVisibility(View.VISIBLE)
+        runOnUiThread {
+            findViewById<GifImageView>(R.id.loading_gif).setVisibility(View.VISIBLE)
+        }
         showPhotos()
         Thread.sleep(100)
         if (!isGalleryAdapterSet())
