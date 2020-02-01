@@ -1,4 +1,4 @@
-package com.redbreadplease.cyclop.abstracts
+package com.redbreadplease.cyclop.activities.abstracts
 
 import android.content.Context
 import android.content.Intent

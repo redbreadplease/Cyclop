@@ -1,4 +1,4 @@
-package com.redbreadplease.cyclop.abstracts
+package com.redbreadplease.cyclop.activities.abstracts
 
 import android.content.Intent
 import android.view.MenuItem
@@ -6,7 +6,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.get
 import com.redbreadplease.cyclop.R
-import com.redbreadplease.cyclop.enums.ActivityType
+import com.redbreadplease.cyclop.stuff.ActivityType
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.redbreadplease.cyclop.activities.ARMenuActivity
 import com.redbreadplease.cyclop.activities.GalleryActivity

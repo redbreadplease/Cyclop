@@ -1,4 +1,4 @@
-package com.redbreadplease.cyclop.abstracts
+package com.redbreadplease.cyclop.activities.abstracts
 
 import android.view.View
 import android.widget.TextView
@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.redbreadplease.cyclop.R
-import com.redbreadplease.cyclop.enums.ActivityType
+import com.redbreadplease.cyclop.stuff.ActivityType
 import com.redbreadplease.cyclop.recyclerview.GalleryRecyclerviewAdapter
 import com.redbreadplease.cyclop.recyclerview.RecyclerViewAdapter
 import com.redbreadplease.cyclop.retrofit.pojos.GalleryPhoto
@@ -58,7 +58,7 @@ abstract class RecyclableActivity : BaseActivity() {
                 newsRecyclerview?.adapter = null
             }
             else -> {
-                newsAdapter = RecyclerViewAdapter(list, applicationContext)
+                newsAdapter = RecyclerViewAdapter(list, this)
                 newsRecyclerview?.adapter = newsAdapter
                 findViewById<TextView>(R.id.no_posts_found_text_view).setVisibility(View.INVISIBLE)
             }

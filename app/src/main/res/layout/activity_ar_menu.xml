@@ -71,7 +71,7 @@
             android:id="@+id/ar_entrance_button"
             android:layout_width="150dp"
             android:layout_height="@dimen/AREntranceLogoSideSize"
-            android:background="@drawable/ic_m_eye_logo_2"
+            android:background="@drawable/ARMenuButtonImage"
             android:contentDescription="@string/ARButtonDescription"
             app:layout_constraintBottom_toTopOf="@id/lower_ar_button_text_view"
             app:layout_constraintLeft_toLeftOf="parent"

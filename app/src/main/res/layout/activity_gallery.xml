@@ -11,7 +11,7 @@
         android:layout_height="match_parent"
         android:contentDescription="@string/defaultBackgroundDescription"
         android:scaleType="centerCrop"
-        android:src="@drawable/bgc_darkvioletblue"
+        android:src="@color/colorTimelineBackground"
         app:layout_constraintBottom_toTopOf="@id/bottom_navigation_view"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

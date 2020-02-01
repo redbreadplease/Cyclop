@@ -1,45 +1,27 @@
 package com.redbreadplease.cyclop.activities
 
+import android.content.Context
+import android.hardware.SensorManager
 import android.os.Bundle
+import android.view.WindowManager
 import com.badlogic.gdx.backends.android.AndroidApplication
 import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration
-import com.redbreadplease.cyclop.ar.ARStars
+import com.redbreadplease.cyclop.vr.ActivityVR
+import kotlin.concurrent.thread
 
 
 class ARSpaceActivity : AndroidApplication() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        initialize(ARStars(), AndroidApplicationConfiguration())
+        /*thread {
+            window.setFlags(
+                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+            )
+        }*/
+        initialize(
+            ActivityVR(getSystemService(Context.SENSOR_SERVICE) as SensorManager),
+            AndroidApplicationConfiguration()
+        )
     }
 }
-
-/*
-class ARSpaceActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_ar_space)
-        prepareActivityView()
-    }
-
-    private fun prepareActivityView() {
-        thread {
-            setButtonsTouchable()
-        }
-    }
-
-    private fun setButtonsTouchable() {
-        findViewById<Button>(R.id.exit_ar_button).setOnClickListener {
-            startActivity(Intent(this, ARMenuActivity::class.java))
-        }
-    }
-
-    private fun createToast(notificationText: String) {
-        thread {
-            Toast.makeText(
-                getApplicationContext(),
-                notificationText, Toast.LENGTH_SHORT
-            ).show()
-        }
-    }
-}
- */

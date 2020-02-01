@@ -1,16 +1,25 @@
 <resources>
     <string name="noPostsFound">No news posts found</string>
     <string name="noPhotoFound">No photos found</string>
+
+    <string name="emptyPostBodyField">Click button to see more info</string>
+
     <string name="ARMenuName">AR Menu</string>
     <string name="newsMenuName">News</string>
     <string name="searchMenuName">Search</string>
     <string name="galleryMenuName">Gallery</string>
+
     <string name="upperARButtonText">Some text like hey man click this eye</string>
     <string name="lowerARButtonText">Hahaha what the hell is going on?!</string>
+
     <string name="toolbarLogoDescription">It\'s just logo. Don\'t give a fuck</string>
     <string name="ARButtonDescription">Click to start AR activity</string>
     <string name="defaultBackgroundDescription">Default background</string>
     <string name="defaultLoadingBackgroundDescription">Default background while loading app</string>
     <string name="autofillHintsDescription">Search among the words in news posts</string>
+    <string name="galleryPhotoDescription">Space photo</string>
+    <string name="newsPostPhotoDescription">News post\'s photo</string>
+    <string name="newsPostsBethDescription">Separating beth</string>
+
     <string name="searchFrameHint">Your request</string>
 </resources>

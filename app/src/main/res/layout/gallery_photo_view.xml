@@ -8,9 +8,10 @@
         android:id="@+id/gallery_photo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="2dp"
+        android:layout_margin="@dimen/galleryPhotoMargin"
         android:adjustViewBounds="true"
+        android:contentDescription="@string/galleryPhotoDescription"
         android:scaleType="centerCrop"
-        android:src="@mipmap/ic_launcher_round" />
+        android:src="@drawable/ic_m_logo_eye_violet" />
 
 </LinearLayout>

@@ -1,18 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="AREntranceLogoSideSize">150dp</dimen>
-    <dimen name="defaultToolbarHeight">50dp</dimen>
-    <dimen name="defaultNavbarHeight">50dp</dimen>
-    <dimen name="defaultSearchFieldHeight">40dp</dimen>
-    <dimen name="summaryOfSearchFieldAndToolbarHeights">90dp</dimen>
     <dimen name="defaultToolbarTextSize">20sp</dimen>
-    <dimen name="defaultToolbarLogoMarginRight">10dp</dimen>
     <dimen name="defaultTextSize">18sp</dimen>
     <dimen name="warningTextSize">26sp</dimen>
+    <dimen name="postTitleTextSize">16sp</dimen>
+    <dimen name="postAnnotationTextSize">14sp</dimen>
+    <dimen name="postBodyTextSize">14sp</dimen>
+
+    <dimen name="defaultToolbarHeight">50dp</dimen>
+    <dimen name="defaultNavbarHeight">50dp</dimen>
+    <dimen name="defaultToolbarLogoMarginRight">10dp</dimen>
+    <dimen name="summaryOfSearchFieldAndToolbarHeights">90dp</dimen>
+
+    <dimen name="postsBethHeight">7dp</dimen>
+    <dimen name="postPaddingVertical">12dp</dimen>
+    <dimen name="postAnnotationMargin">12dp</dimen>
+    <dimen name="postBodyMargin">12dp</dimen>
+    <dimen name="postPhotoMarginVertical">10dp</dimen>
+    <dimen name="postTitleMarginHorizontal">20dp</dimen>
+    <dimen name="showPostBodyButtonSideSize">40dp</dimen>
+    <dimen name="showPostBodyButtonMarginHorizontal">12dp</dimen>
+    <dimen name="showPostBodyButtonPadding">@dimen/showPostBodyButtonMarginHorizontal</dimen>
+
+    <dimen name="defaultSearchFieldHeight">40dp</dimen>
     <dimen name="searchFrameMarginStart">15dp</dimen>
     <dimen name="searchFrameMaxWidth">200dp</dimen>
     <dimen name="searchFrameHorizontalPadding">10dp</dimen>
     <dimen name="searchFrameVerticalPadding">4dp</dimen>
     <dimen name="searchButtonSideSize">28dp</dimen>
     <dimen name="searchButtonEndMargin">20dp</dimen>
+
+    <dimen name="galleryPhotoMargin">2dp</dimen>
+
+    <dimen name="AREntranceLogoSideSize">150dp</dimen>
 </resources>

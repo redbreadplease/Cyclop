@@ -3,7 +3,7 @@ package com.redbreadplease.cyclop.activities
 import android.content.Intent
 import android.os.Bundle
 import com.redbreadplease.cyclop.R
-import com.redbreadplease.cyclop.abstracts.NetworkRecyclableActivity
+import com.redbreadplease.cyclop.activities.abstracts.NetworkRecyclableActivity
 import kotlin.concurrent.thread
 
 
@@ -17,9 +17,7 @@ class LoadingActivity : NetworkRecyclableActivity() {
     override fun prepareActivityView() {
         thread {
             Thread.sleep(400)
-            startActivity(
-                Intent(this, NewsActivity::class.java)
-            )
+            startActivity(Intent(this, NewsActivity::class.java))
         }
     }
 }

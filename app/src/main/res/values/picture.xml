@@ -2,7 +2,8 @@
 <resources>
 
     <drawable name="eye">@drawable/ic_m_eye_logo_2_cut</drawable>
-    <drawable name="defaultBackground">@drawable/ic_space_background_2</drawable>
+    <drawable name="defaultBackground">@drawable/ic_space_background_3</drawable>
     <drawable name="defaultLoadingAppBackground">@drawable/preview_2</drawable>
+    <drawable name="ARMenuButtonImage">@drawable/ic_m_eye_logo_2</drawable>
 
 </resources>
