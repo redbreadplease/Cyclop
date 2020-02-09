@@ -8,7 +8,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
 import com.redbreadplease.cyclop.R
-import com.redbreadplease.cyclop.activities.ARSpaceActivity
+import com.redbreadplease.cyclop.activities.VRActivity
 import com.redbreadplease.cyclop.retrofit.NetworkService
 import com.redbreadplease.cyclop.retrofit.pojos.GalleryPhoto
 import com.redbreadplease.cyclop.retrofit.pojos.NewsPost
@@ -83,7 +83,7 @@ abstract class NetworkRecyclableActivity : RecyclableActivity() {
                 // TODO
                 // Swap without transition
             }
-            startActivity(Intent(this, ARSpaceActivity::class.java))
+            startActivity(Intent(this, VRActivity::class.java))
         }
     }
 

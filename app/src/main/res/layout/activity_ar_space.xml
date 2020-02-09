@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorSpaceBar"
     android:orientation="vertical"
-    tools:context=".activities.ARSpaceActivity">
+    tools:context=".activities.VRActivity">
 
     <Button
         android:id="@+id/exit_ar_button"

@@ -3,14 +3,12 @@ package com.redbreadplease.cyclop.activities
 import android.content.Context
 import android.hardware.SensorManager
 import android.os.Bundle
-import android.view.WindowManager
 import com.badlogic.gdx.backends.android.AndroidApplication
 import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration
-import com.redbreadplease.cyclop.vr.ActivityVR
-import kotlin.concurrent.thread
+import com.redbreadplease.cyclop.vr.VREngine
 
 
-class ARSpaceActivity : AndroidApplication() {
+class VRActivity : AndroidApplication() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         /*thread {
@@ -20,7 +18,7 @@ class ARSpaceActivity : AndroidApplication() {
             )
         }*/
         initialize(
-            ActivityVR(getSystemService(Context.SENSOR_SERVICE) as SensorManager),
+            VREngine(getSystemService(Context.SENSOR_SERVICE) as SensorManager),
             AndroidApplicationConfiguration()
         )
     }

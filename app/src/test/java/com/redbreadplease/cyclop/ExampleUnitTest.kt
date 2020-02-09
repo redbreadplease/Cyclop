@@ -1,12 +1,7 @@
 package com.redbreadplease.cyclop
 
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
+import org.junit.Assert.assertEquals
 import org.junit.Test
-
-import org.junit.Assert.*
-import java.io.InputStream
-import java.net.URL
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -17,5 +12,11 @@ class ExampleUnitTest {
     @Test
     fun addition_isCorrect() {
         assertEquals(4, 2 + 2)
+    }
+
+    @Test
+    fun justTest() {
+        for (i in -10..10)
+            println(i)
     }
 }

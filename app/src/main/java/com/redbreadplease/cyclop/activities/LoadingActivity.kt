@@ -17,7 +17,7 @@ class LoadingActivity : NetworkRecyclableActivity() {
     override fun prepareActivityView() {
         thread {
             Thread.sleep(400)
-            startActivity(Intent(this, NewsActivity::class.java))
+            startActivity(Intent(this, VRActivity::class.java))
         }
     }
 }
