@@ -15,8 +15,8 @@ import com.badlogic.gdx.math.Vector3
 abstract class AbstractVR : ApplicationAdapter() {
     protected var cam: PerspectiveCamera? = null
     protected var camController: CameraInputController? = null
-    private val startPos = floatArrayOf(0f, 0f, 0f)
-    private val lookAt = floatArrayOf(1f, 0f, 0f)
+    private val startPos = floatArrayOf(-1700f, -1700f, -1700f)
+    private val lookAt = floatArrayOf(0f, 0f, 0f)
     protected var instances: MutableList<ModelInstance> = mutableListOf()
     protected var modelBatch: ModelBatch? = null
     protected var environment: Environment? = null
@@ -30,11 +30,15 @@ abstract class AbstractVR : ApplicationAdapter() {
     }
 
     private fun setCamera() {
-        cam = PerspectiveCamera(67f, Gdx.graphics.width.toFloat(), Gdx.graphics.height.toFloat())
+        cam = PerspectiveCamera(
+            120f /*67f*/,
+            Gdx.graphics.width.toFloat(),
+            Gdx.graphics.height.toFloat()
+        )
         cam!!.position[startPos[0], startPos[1]] = startPos[2]
         cam!!.lookAt(lookAt[0], lookAt[0], lookAt[0])
         cam!!.near = 0f
-        cam!!.far = 2000f
+        cam!!.far = 4000f
         cam!!.update()
     }
 
