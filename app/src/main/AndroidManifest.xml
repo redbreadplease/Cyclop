@@ -13,12 +13,24 @@
         android:roundIcon="@drawable/ic_m_logo_eye_violet"
         android:supportsRtl="true"
         android:theme="@style/noAnimTheme">
-        <activity android:name=".activities.VRActivity" />
-        <activity android:name=".activities.NewsActivity" />
-        <activity android:name=".activities.SearchActivity" />
-        <activity android:name=".activities.GalleryActivity" />
-        <activity android:name=".activities.ARMenuActivity" />
-        <activity android:name=".activities.LoadingActivity">
+        <activity
+            android:name=".activities.VRActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.NewsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.SearchActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.GalleryActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.ARMenuActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.SplashActivity"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

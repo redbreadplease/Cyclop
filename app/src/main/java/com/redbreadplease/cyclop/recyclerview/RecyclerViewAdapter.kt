@@ -4,8 +4,9 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
-import androidx.constraintlayout.widget.ConstraintLayout
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.redbreadplease.cyclop.R
 import com.redbreadplease.cyclop.retrofit.pojos.NewsPost
@@ -17,9 +18,27 @@ class RecyclerViewAdapter(
     private val UIContext: Context
 ) : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
 
+    private val VIEW_TYPE_LOADING = 0
+    private val VIEW_TYPE_NORMAL = 1
+    private val isLoaderVisible = false
+    private var mCurrentPosition: Int = 0
+
     override fun getItemCount(): Int = posts.size
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        return when (viewType) {
+            VIEW_TYPE_NORMAL -> ViewHolder(
+                LayoutInflater.from(parent.context).inflate(R.layout.item_post, parent, false)
+            )
+            VIEW_TYPE_LOADING -> ProgressHolder(
+                LayoutInflater.from(parent.context).inflate(
+                    R.layout.item_loading,
+                    parent,
+                    false
+                )
+            )
+            else -> null
+        }
         val itemView = LayoutInflater.from(parent.context)
             .inflate(R.layout.post_item_view, parent, false)
         return ViewHolder(itemView)
