@@ -18,27 +18,9 @@ class RecyclerViewAdapter(
     private val UIContext: Context
 ) : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
 
-    private val VIEW_TYPE_LOADING = 0
-    private val VIEW_TYPE_NORMAL = 1
-    private val isLoaderVisible = false
-    private var mCurrentPosition: Int = 0
-
     override fun getItemCount(): Int = posts.size
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return when (viewType) {
-            VIEW_TYPE_NORMAL -> ViewHolder(
-                LayoutInflater.from(parent.context).inflate(R.layout.item_post, parent, false)
-            )
-            VIEW_TYPE_LOADING -> ProgressHolder(
-                LayoutInflater.from(parent.context).inflate(
-                    R.layout.item_loading,
-                    parent,
-                    false
-                )
-            )
-            else -> null
-        }
         val itemView = LayoutInflater.from(parent.context)
             .inflate(R.layout.post_item_view, parent, false)
         return ViewHolder(itemView)
@@ -56,7 +38,7 @@ class RecyclerViewAdapter(
                 .filterIndexed { i, _ -> i > 0 }.joinToString(".").plus(".")
         }
 
-        if (posts[position]?.photo_urls != "" && posts[position]?.photo_urls != null) {
+        if (posts[position]?.photo_urls != "" && posts[posit    ion]?.photo_urls != null) {
             val url = posts[position]?.photo_urls?.split("||")?.get(0)
             Picasso.with(UIContext).load(url).into(holder.previewImageView)
         } else
