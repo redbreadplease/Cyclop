@@ -38,7 +38,7 @@ class RecyclerViewAdapter(
                 .filterIndexed { i, _ -> i > 0 }.joinToString(".").plus(".")
         }
 
-        if (posts[position]?.photo_urls != "" && posts[posit    ion]?.photo_urls != null) {
+        if (posts[position]?.photo_urls != "" && posts[position]?.photo_urls != null) {
             val url = posts[position]?.photo_urls?.split("||")?.get(0)
             Picasso.with(UIContext).load(url).into(holder.previewImageView)
         } else
