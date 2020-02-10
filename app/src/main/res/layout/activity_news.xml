@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.LoadingActivity">
+    tools:context=".activities.NewsActivity">
 
     <ImageView
         android:layout_width="match_parent"
@@ -54,7 +54,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.appcompat.widget.Toolbar>
-    
+
     <pl.droidsonroids.gif.GifImageView
         android:id="@+id/loading_gif"
         android:layout_width="wrap_content"
