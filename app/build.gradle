@@ -36,6 +36,7 @@ android {
     sourceSets {
         main {
             jniLibs.srcDirs = ['libs']
+            res.srcDirs = ['src/main/res', 'src/main/res/include']
         }
     }
 }
@@ -67,9 +68,6 @@ dependencies {
 
     // Picasso
     implementation 'com.squareup.picasso:picasso:2.5.2'
-
-    // For gif
-    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.3'
 
     // libGDX
     implementation "com.badlogicgames.gdx:gdx-backend-android:$gdxVersion"

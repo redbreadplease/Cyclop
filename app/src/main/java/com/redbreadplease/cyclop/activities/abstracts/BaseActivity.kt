@@ -8,11 +8,11 @@ import androidx.core.view.get
 import com.redbreadplease.cyclop.R
 import com.redbreadplease.cyclop.stuff.ActivityType
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.redbreadplease.cyclop.activities.ARMenuActivity
+import com.redbreadplease.cyclop.activities.VRMenuActivity
 import com.redbreadplease.cyclop.activities.GalleryActivity
 import com.redbreadplease.cyclop.activities.NewsActivity
 import com.redbreadplease.cyclop.activities.SearchActivity
-import kotlinx.android.synthetic.main.activity_news.*
+import kotlinx.android.synthetic.main.navbar.*
 import kotlin.concurrent.thread
 
 
@@ -27,14 +27,14 @@ abstract class BaseActivity : AppCompatActivity() {
         bottom_navigation_view.setOnNavigationItemSelectedListener(object :
             BottomNavigationView.OnNavigationItemSelectedListener {
             override fun onNavigationItemSelected(item: MenuItem): Boolean {
-                when (currentPageId) {
-                    item.getItemId() -> return false
+                return when (currentPageId) {
+                    item.getItemId() -> false
                     else -> {
                         currentPageId = item.getItemId()
                         thread {
                             buttonClicked(getButtonPurposeById(currentPageId))
                         }
-                        return true
+                        true
                     }
                 }
             }
@@ -43,7 +43,7 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     fun setActiveNavbarButton(activityNow: ActivityType) {
-        bottom_navigation_view.menu[
+        val activeNavbarButton = bottom_navigation_view.menu[
                 when (activityNow) {
                     ActivityType.NEWS -> 0
                     ActivityType.SEARCH -> 1
@@ -51,7 +51,9 @@ abstract class BaseActivity : AppCompatActivity() {
                     ActivityType.CONSTELLATIONS -> 3
 
                 }
-        ].icon = getDrawable(
+        ]
+        activeNavbarButton.setEnabled(false)
+        activeNavbarButton.icon = getDrawable(
             when (activityNow) {
                 ActivityType.NEWS -> R.drawable.ic_m_news_button_beige
                 ActivityType.SEARCH -> R.drawable.ic_m_search_button_beige
@@ -70,7 +72,7 @@ abstract class BaseActivity : AppCompatActivity() {
             ActivityType.PLANET ->
                 startActivity(Intent(this, GalleryActivity::class.java))
             ActivityType.CONSTELLATIONS ->
-                startActivity(Intent(this, ARMenuActivity::class.java))
+                startActivity(Intent(this, VRMenuActivity::class.java))
             null -> println("Error: given null purpose")
         }
     }

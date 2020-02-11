@@ -17,4 +17,7 @@
     <color name="colorLightBeige">#E2C9BB</color>
     <color name="colorBlack">#330000</color>
     <color name="colorTimelineBackground">#00000F</color>
+
+    <color name="darkGrey">#121212</color> <!-- surface -->
+
 </resources>

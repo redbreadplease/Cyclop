@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="progressBarSize">40dp</dimen>
+
     <dimen name="defaultToolbarTextSize">20sp</dimen>
     <dimen name="defaultTextSize">18sp</dimen>
     <dimen name="warningTextSize">26sp</dimen>

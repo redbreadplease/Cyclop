@@ -7,12 +7,12 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ProgressBar
 import com.redbreadplease.cyclop.R
 import com.redbreadplease.cyclop.activities.VRActivity
 import com.redbreadplease.cyclop.retrofit.NetworkService
 import com.redbreadplease.cyclop.retrofit.pojos.GalleryPhoto
 import com.redbreadplease.cyclop.retrofit.pojos.NewsPost
-import pl.droidsonroids.gif.GifImageView
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -24,7 +24,7 @@ abstract class NetworkRecyclableActivity : RecyclableActivity() {
 
     override fun tryToShowNews() {
         runOnUiThread {
-            findViewById<GifImageView>(R.id.loading_gif).setVisibility(View.VISIBLE)
+            findViewById<ProgressBar>(R.id.progress_bar).visibility = View.GONE
         }
         showNews()
         Thread.sleep(100)
@@ -34,7 +34,7 @@ abstract class NetworkRecyclableActivity : RecyclableActivity() {
 
     override fun tryToShowResults(userRequest: String) {
         runOnUiThread {
-            findViewById<GifImageView>(R.id.loading_gif).setVisibility(View.VISIBLE)
+            //TODO
         }
         val request: String = "\"" + userRequest + "\""
         showFilteredPosts(request)
@@ -45,7 +45,7 @@ abstract class NetworkRecyclableActivity : RecyclableActivity() {
 
     override fun tryToShowGallery() {
         runOnUiThread {
-            findViewById<GifImageView>(R.id.loading_gif).setVisibility(View.VISIBLE)
+            //TODO
         }
         showPhotos()
         Thread.sleep(100)

@@ -12,7 +12,6 @@ import com.redbreadplease.cyclop.recyclerview.GalleryRecyclerviewAdapter
 import com.redbreadplease.cyclop.recyclerview.RecyclerViewAdapter
 import com.redbreadplease.cyclop.retrofit.pojos.GalleryPhoto
 import com.redbreadplease.cyclop.retrofit.pojos.NewsPost
-import pl.droidsonroids.gif.GifImageView
 import kotlin.concurrent.thread
 
 abstract class RecyclableActivity : BaseActivity() {
@@ -51,31 +50,34 @@ abstract class RecyclableActivity : BaseActivity() {
     abstract fun setSearchActivityClickableZones()
 
     fun setNewsAdapter(list: MutableList<NewsPost?>) {
-        findViewById<GifImageView>(R.id.loading_gif).setVisibility(View.INVISIBLE)
         when (list.size) {
             0 -> {
-                findViewById<TextView>(R.id.no_posts_found_text_view).setVisibility(View.VISIBLE)
+                findViewById<TextView>(R.id.nothing_found).text =
+                    R.string.noPostsFound.toString()
+                findViewById<TextView>(R.id.nothing_found).visibility = View.VISIBLE
                 newsRecyclerview?.adapter = null
             }
             else -> {
                 newsAdapter = RecyclerViewAdapter(list, this)
                 newsRecyclerview?.adapter = newsAdapter
-                findViewById<TextView>(R.id.no_posts_found_text_view).setVisibility(View.INVISIBLE)
+                findViewById<TextView>(R.id.nothing_found).visibility = View.GONE
             }
         }
     }
 
     fun setGalleryAdapter(list: MutableList<GalleryPhoto?>) {
-        findViewById<GifImageView>(R.id.loading_gif).setVisibility(View.INVISIBLE)
+        //TODO findViewById<GifImageView>(R.id.loading_gif).setVisibility(View.INVISIBLE)
         when (list.size) {
             0 -> {
-                findViewById<TextView>(R.id.no_photo_found_text_view).setVisibility(View.VISIBLE)
+                findViewById<TextView>(R.id.nothing_found).text =
+                    R.string.noPhotoFound.toString()
+                findViewById<TextView>(R.id.nothing_found).visibility = View.VISIBLE
                 galleryRecyclerview?.adapter = null
             }
             else -> {
                 galleryAdapter = GalleryRecyclerviewAdapter(list, applicationContext)
                 galleryRecyclerview?.adapter = galleryAdapter
-                findViewById<TextView>(R.id.no_photo_found_text_view).setVisibility(View.INVISIBLE)
+                findViewById<TextView>(R.id.nothing_found).visibility = View.GONE
             }
         }
     }
@@ -89,31 +91,31 @@ abstract class RecyclableActivity : BaseActivity() {
 
     private fun setGalleryRecyclerview() {
         if (galleryRecyclerview == null) {
-            galleryRecyclerview = findViewById(R.id.gallery_recyclerview)
-            galleryRecyclerview?.layoutManager = GridLayoutManager(this, 1)
+            galleryRecyclerview = findViewById(R.id.recyclerview)
+            galleryRecyclerview!!.layoutManager = GridLayoutManager(this, 1)
         }
     }
 
     private fun setNewsSwipeRefresher() {
-        if (newsSwipeRefresher == null) {
+        /* if (newsSwipeRefresher == null) {
             newsSwipeRefresher = findViewById(R.id.swipe_refresher)
-            newsSwipeRefresher?.setProgressBackgroundColorSchemeColor(
+            newsSwipeRefresher!!.setProgressBackgroundColorSchemeColor(
                 getResources().getColor(
                     R.color.colorSpaceBar
                 )
             )
-            newsSwipeRefresher?.setColorSchemeColors(getResources().getColor(R.color.colorC6F))
-            newsSwipeRefresher?.setOnRefreshListener(SwipeRefreshLayout.OnRefreshListener {
+            newsSwipeRefresher!!.setColorSchemeColors(getResources().getColor(R.color.colorC6F))
+            newsSwipeRefresher!!.setOnRefreshListener(SwipeRefreshLayout.OnRefreshListener {
                 thread {
                     tryToShowNews()
                     newsSwipeRefresher?.setRefreshing(false)
                 }
             })
-        }
+        } */
     }
 
     private fun setSearchSwipeRefresher() {
-        if (newsSwipeRefresher == null) {
+        /* if (newsSwipeRefresher == null) {
             newsSwipeRefresher = findViewById(R.id.swipe_refresher)
             newsSwipeRefresher?.setProgressBackgroundColorSchemeColor(
                 getResources().getColor(
@@ -127,11 +129,11 @@ abstract class RecyclableActivity : BaseActivity() {
                     newsSwipeRefresher?.setRefreshing(false)
                 }
             })
-        }
+        } */
     }
 
     private fun setGallerySwipeRefresher() {
-        if (gallerySwipeRefresher == null) {
+        /* if (gallerySwipeRefresher == null) {
             gallerySwipeRefresher = findViewById(R.id.gallery_swipe_refresher)
             gallerySwipeRefresher?.setProgressBackgroundColorSchemeColor(
                 getResources().getColor(
@@ -145,7 +147,7 @@ abstract class RecyclableActivity : BaseActivity() {
                     gallerySwipeRefresher?.setRefreshing(false)
                 }
             })
-        }
+        } */
     }
 
     fun isNewsAdapterSet(): Boolean = newsAdapter != null
