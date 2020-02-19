@@ -2,23 +2,23 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/news_item"
-        android:icon="@drawable/ic_m_news_button_white"
+        android:id="@+id/navbar_news_button"
+        android:icon="@drawable/ic_m_news_dark"
         android:title="" />
 
     <item
-        android:id="@+id/search_button"
-        android:icon="@drawable/ic_m_search_button_white"
+        android:id="@+id/navbar_gallery_button"
+        android:icon="@drawable/ic_m_planet_dark"
         android:title="" />
 
     <item
-        android:id="@+id/planet_button"
-        android:icon="@drawable/ic_m_planet_button_white"
+        android:id="@+id/navbar_vr_menu_button"
+        android:icon="@drawable/ic_m_constellations_dark"
         android:title="" />
 
     <item
-        android:id="@+id/constellations_button"
-        android:icon="@drawable/ic_m_constellations_button_white"
+        android:id="@+id/navbar_menu_button"
+        android:icon="@drawable/ic_m_menu_button_dark"
         android:title="" />
 
 </menu>

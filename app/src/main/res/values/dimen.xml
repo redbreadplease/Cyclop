@@ -9,17 +9,25 @@
     <dimen name="postAnnotationTextSize">14sp</dimen>
     <dimen name="postBodyTextSize">14sp</dimen>
 
-    <dimen name="defaultToolbarHeight">50dp</dimen>
+    <dimen name="defaultToolbarHeight">55dp</dimen>
+    <dimen name="defaultToolbarElementsHeight">45dp</dimen>
+
     <dimen name="defaultNavbarHeight">50dp</dimen>
     <dimen name="defaultToolbarLogoMarginRight">10dp</dimen>
+    <dimen name="defaultToolbarNameMarginLeft">15dp</dimen>
     <dimen name="summaryOfSearchFieldAndToolbarHeights">90dp</dimen>
 
+
+    <dimen name="searchFieldCornerRadius">5dp</dimen>
+    <dimen name="searchButtonFieldSideSize">@dimen/defaultToolbarElementsHeight</dimen>
+    <dimen name="searchFieldMarginHorizontal">10dp</dimen>
+
     <dimen name="postsBethHeight">7dp</dimen>
-    <dimen name="postPaddingVertical">12dp</dimen>
+    <dimen name="postPaddingVertical">7dp</dimen>
     <dimen name="postAnnotationMargin">12dp</dimen>
     <dimen name="postBodyMargin">12dp</dimen>
     <dimen name="postPhotoMarginVertical">10dp</dimen>
-    <dimen name="postTitleMarginHorizontal">20dp</dimen>
+    <dimen name="postTitleMarginHorizontal">12dp</dimen>
     <dimen name="showPostBodyButtonSideSize">40dp</dimen>
     <dimen name="showPostBodyButtonMarginHorizontal">12dp</dimen>
     <dimen name="showPostBodyButtonPadding">@dimen/showPostBodyButtonMarginHorizontal</dimen>

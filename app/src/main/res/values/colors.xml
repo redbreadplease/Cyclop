@@ -18,6 +18,21 @@
     <color name="colorBlack">#330000</color>
     <color name="colorTimelineBackground">#00000F</color>
 
-    <color name="darkGrey">#121212</color> <!-- surface -->
-
+    <!-- Google dark theme style -->
+    <color name="background">#121212</color> <!-- Surface (0dp elevation surface overlay) -->
+    <color name="surface">#2C2D2E</color> <!-- Surface (with 1dp elevation surface overlay) -->
+    <color name="primary">#bb86fc</color>
+    <color name="secondary">#03dac6</color>
+    <color name="onBackground">#03dac6</color>
+    <color name="onSurface">#e0e0e0</color>
+    <color name="onSurfaceFair">#363738</color>
+    <color name="onSurfaceDark">#a4a4a4</color>
+    <color name="onPrimary">#000000</color>
+    <color name="onSecondary">#000000</color>
+    <color name="onSurfaceBlind">#E1E3E6</color>
+    <color name="surfaceBack">#19191A</color>
+    <color name="button">#909499</color>
+    <color name="neonPrimaryFair">#9D52F7</color>
+    <color name="neonPrimaryDark">#9135FA</color>
+    <color name="green">#3a7B27</color>
 </resources>

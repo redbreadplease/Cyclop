@@ -15,7 +15,7 @@ class GalleryActivity : NetworkRecyclableActivity() {
 
     override fun prepareActivityView() {
         thread {
-            setActivityView(ActivityType.PLANET)
+            setActivityView(ActivityType.GALLERY)
             tryToShowGallery()
         }
     }

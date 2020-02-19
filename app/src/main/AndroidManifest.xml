@@ -11,23 +11,29 @@
         android:icon="@drawable/ic_m_logo_eye_violet"
         android:label="Cyclop"
         android:roundIcon="@drawable/ic_m_logo_eye_violet"
-        android:supportsRtl="true"
-        android:theme="@style/noAnimTheme">
+        android:supportsRtl="true">
         <activity
             android:name=".activities.VRActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/noAnimTheme" />
         <activity
             android:name=".activities.NewsActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/noAnimTheme" />
         <activity
             android:name=".activities.SearchActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/noAnimTheme" />
         <activity
             android:name=".activities.GalleryActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/noAnimTheme" />
         <activity
             android:name=".activities.VRMenuActivity"
-            android:screenOrientation="portrait" />
+            android:theme="@style/noAnimTheme" />
+        <activity
+            android:name=".activities.AppMenuActivity"
+            android:theme="@style/noAnimTheme" />
         <activity
             android:name=".activities.SplashActivity"
             android:theme="@style/SplashTheme">

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <drawable name="eye">@drawable/ic_m_eye_logo_2_cut</drawable>
-    <drawable name="defaultBackground">@drawable/ic_space_background_3</drawable>
-    <drawable name="defaultLoadingAppBackground">@drawable/preview_2</drawable>
-    <drawable name="ARMenuButtonImage">@drawable/ic_m_eye_logo_2</drawable>
+    <drawable name="eye">@drawable/ic_m_eye_white</drawable>
+    <drawable name="defaultBackground">@color/background</drawable>
+    <drawable name="defaultLoadingAppBackground">@drawable/splash_view</drawable>
+    <drawable name="ARMenuButtonImage">@drawable/ic_m_eye_white</drawable>
 
 </resources>

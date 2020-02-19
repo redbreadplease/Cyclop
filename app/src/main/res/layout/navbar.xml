@@ -5,7 +5,7 @@
     android:id="@+id/bottom_navigation_view"
     android:layout_width="match_parent"
     android:layout_height="@dimen/defaultNavbarHeight"
-    android:background="@color/colorSpaceBar"
+    android:background="@color/surface"
     android:focusableInTouchMode="false"
     app:labelVisibilityMode="unlabeled"
     app:layout_constraintBottom_toBottomOf="parent"

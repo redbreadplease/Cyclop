@@ -15,7 +15,7 @@ class VRMenuActivity : NetworkRecyclableActivity() {
 
     override fun prepareActivityView() {
         thread {
-            setActivityView(ActivityType.CONSTELLATIONS)
+            setActivityView(ActivityType.VR_MENU)
             setARMenuActivityClickableZones()
         }
     }

@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:background="@color/colorSpaceBar">
 
     <TextView
         android:id="@+id/nothing_found"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:textColor="@color/colorWhiteish"
         android:textSize="@dimen/warningTextSize"
-        android:visibility="invisible" />
+        android:visibility="visible"
+        tools:text="SOMETHING WENT WRONG" />
 </LinearLayout>

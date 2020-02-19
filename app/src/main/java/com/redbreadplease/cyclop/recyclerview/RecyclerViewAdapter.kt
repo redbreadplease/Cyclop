@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
@@ -44,11 +45,20 @@ class RecyclerViewAdapter(
         } else
             holder.previewImageView = null
 
-        holder.showPostBody?.setOnClickListener {
-            holder.bodyView!!.visibility = View.VISIBLE
-            holder.bodyView!!.text = posts[position]!!.body
-            it.setClickable(false)
-            it.visibility = View.INVISIBLE
+        holder.bodyView?.visibility = View.GONE
+        holder.showPostBody?.also {
+            it.setClickable(true)
+            it.setFocusable(true)
+            it.setOnClickListener {
+                holder.annotationView!!.startAnimation(
+                    AnimationUtils.loadAnimation(
+                        UIContext,
+                        R.anim.blinking
+                    )
+                )
+                holder.bodyView!!.visibility = View.VISIBLE
+                holder.bodyView!!.text = posts[position]!!.body
+            }
         }
     }
 
@@ -64,7 +74,7 @@ class RecyclerViewAdapter(
             annotationView = itemView.findViewById(R.id.post_annotation)
             bodyView = itemView.findViewById(R.id.post_body)
             previewImageView = itemView.findViewById(R.id.post_preview_img)
-            showPostBody = itemView.findViewById(R.id.button_show_post_body)
+            showPostBody = itemView.findViewById(R.id.show_post_button)
         }
     }
 

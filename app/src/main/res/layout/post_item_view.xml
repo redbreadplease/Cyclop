@@ -7,87 +7,89 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/bgc_violetblue"
-        android:paddingTop="@dimen/postPaddingVertical">
+        android:layout_margin="5dp"
+        app:cardBackgroundColor="@color/background"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="10dp">
 
-
-        <TextView
-            android:id="@+id/post_title"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/postTitleMarginHorizontal"
-            android:layout_marginEnd="@dimen/postTitleMarginHorizontal"
-            android:textColor="@color/colorWhiteish"
-            android:textSize="@dimen/postTitleTextSize"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Post title" />
+            android:background="@color/surfaceBack"
+            android:paddingTop="@dimen/postPaddingVertical">
+
+            <TextView
+                android:id="@+id/post_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/postTitleMarginHorizontal"
+                android:layout_marginEnd="@dimen/postTitleMarginHorizontal"
+                android:textColor="@color/onSurfaceBlind"
+                android:textSize="@dimen/postTitleTextSize"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Post title" />
 
 
-        <ImageView
-            android:id="@+id/post_preview_img"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/postPhotoMarginVertical"
-            android:layout_marginBottom="@dimen/postPhotoMarginVertical"
-            android:contentDescription="@string/newsPostPhotoDescription"
-            android:scaleType="centerCrop"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/post_title"
-            tools:src="@mipmap/ic_launcher_round" />
+            <ImageView
+                android:id="@+id/post_preview_img"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/postPhotoMarginVertical"
+                android:layout_marginBottom="@dimen/postPhotoMarginVertical"
+                android:contentDescription="@string/newsPostPhotoDescription"
+                android:scaleType="centerCrop"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/post_title"
+                tools:src="@mipmap/ic_launcher_round" />
 
-        <TextView
-            android:id="@+id/post_annotation"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/postAnnotationMargin"
-            android:minHeight="@dimen/showPostBodyButtonSideSize"
-            android:textColor="@color/colorLightBeige"
-            android:textSize="@dimen/postAnnotationTextSize"
-            app:layout_constraintBottom_toTopOf="@id/post_body"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@id/button_show_post_body"
-            app:layout_constraintTop_toBottomOf="@id/post_preview_img"
-            tools:text="Post annotation" />
+            <TextView
+                android:id="@+id/post_annotation"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/postAnnotationMargin"
+                android:clickable="true"
+                android:focusable="true"
+                android:textColor="@color/onSurfaceBlind"
+                android:textSize="@dimen/postAnnotationTextSize"
+                app:layout_constraintBottom_toTopOf="@id/post_body"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/post_preview_img"
+                tools:text="Post annotation" />
 
-        <Button
-            android:id="@+id/button_show_post_body"
-            android:layout_width="@dimen/showPostBodyButtonSideSize"
-            android:layout_height="@dimen/showPostBodyButtonSideSize"
-            android:layout_marginStart="@dimen/showPostBodyButtonMarginHorizontal"
-            android:layout_marginEnd="@dimen/showPostBodyButtonMarginHorizontal"
-            android:background="@drawable/ic_show_post_body"
-            android:padding="@dimen/showPostBodyButtonPadding"
-            app:layout_constraintBottom_toBottomOf="@id/post_annotation"
-            app:layout_constraintRight_toRightOf="parent" />
+            <TextView
+                android:id="@+id/post_body"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/postBodyMargin"
+                android:text="@string/emptyPostBodyField"
+                android:textColor="@color/colorLightBeige"
+                android:textSize="@dimen/postBodyTextSize"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/post_annotation" />
 
-        <TextView
-            android:id="@+id/post_body"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/postBodyMargin"
-            android:text="@string/emptyPostBodyField"
-            android:textColor="@color/colorLightBeige"
-            android:textSize="@dimen/postBodyTextSize"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/post_annotation" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <Button
+                android:id="@+id/show_post_button"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@android:color/transparent"
+                app:layout_constraintBottom_toBottomOf="@id/post_annotation"
+                app:layout_constraintLeft_toLeftOf="@id/post_annotation"
+                app:layout_constraintRight_toRightOf="@id/post_annotation"
+                app:layout_constraintTop_toTopOf="@id/post_annotation" />
 
 
-    <ImageView
-        android:id="@+id/posts_beth"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/postsBethHeight"
-        android:background="@color/colorTimelineBackground"
-        android:contentDescription="@string/newsPostsBethDescription" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
 
 </LinearLayout>

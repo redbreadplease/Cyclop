@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/defaultToolbarHeight"
+    android:background="@color/surface">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:foregroundGravity="center_horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/toolbar_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/defaultToolbarNameMarginLeft"
+            android:text="@string/newsMenuName"
+            android:textColor="@color/onSurface"
+            android:textSize="@dimen/defaultToolbarTextSize"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/search_frame"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/searchButtonFieldSideSize"
+            android:layout_marginStart="@dimen/defaultToolbarLogoMarginRight"
+            android:layout_marginEnd="@dimen/defaultToolbarLogoMarginRight"
+            android:animateLayoutChanges="true"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/search_button_cardview"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/hide_search_field_button_cardview"
+                android:layout_width="@dimen/defaultToolbarElementsHeight"
+                android:layout_height="@dimen/defaultToolbarElementsHeight"
+                app:cardBackgroundColor="@color/onSurfaceFair"
+                app:cardCornerRadius="@dimen/searchFieldCornerRadius"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <Button
+                    android:id="@+id/hide_search_field_button"
+                    android:layout_width="@dimen/searchButtonFieldSideSize"
+                    android:layout_height="@dimen/searchButtonFieldSideSize"
+                    android:background="@drawable/ic_back_black_24dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/search_field_cardview"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/searchFieldMarginHorizontal"
+                app:cardBackgroundColor="@color/onSurfaceFair"
+
+                app:cardCornerRadius="@dimen/searchFieldCornerRadius"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/hide_search_field_button_cardview"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <EditText
+                    android:id="@+id/search_field"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/searchFieldMarginHorizontal"
+                    android:layout_marginRight="@dimen/searchFieldMarginHorizontal"
+                    android:backgroundTint="@android:color/transparent"
+                    android:hint="@string/searchFrameHint"
+                    android:importantForAutofill="no"
+                    android:inputType="text"
+                    android:paddingStart="0dp"
+                    android:paddingEnd="@dimen/searchButtonFieldSideSize"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toRightOf="@id/hide_search_field_button"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.cardview.widget.CardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/search_button_cardview"
+            android:layout_width="@dimen/searchButtonFieldSideSize"
+            android:layout_height="@dimen/searchButtonFieldSideSize"
+            android:layout_marginEnd="@dimen/defaultToolbarLogoMarginRight"
+            app:cardBackgroundColor="@color/onSurfaceFair"
+            app:cardCornerRadius="@dimen/searchFieldCornerRadius"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <Button
+                android:id="@+id/search_button"
+                android:layout_width="@dimen/searchButtonSideSize"
+                android:layout_height="@dimen/searchButtonSideSize"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_m_search_dark"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

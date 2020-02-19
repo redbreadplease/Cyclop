@@ -1,6 +1,7 @@
 <resources>
     <string name="noPostsFound">No news posts found</string>
     <string name="noPhotoFound">No photos found</string>
+    <string name="errorWhileLoading">An error occurred while loading data. check your internet connection</string>
 
     <string name="emptyPostBodyField">Click button to see more info</string>
 

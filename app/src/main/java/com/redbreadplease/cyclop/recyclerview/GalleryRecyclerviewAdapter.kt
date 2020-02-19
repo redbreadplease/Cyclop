@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.redbreadplease.cyclop.R
@@ -25,28 +26,26 @@ class GalleryRecyclerviewAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val curPhoto: GalleryPhoto? = photos[position]
-        if (curPhoto?.url != "" && curPhoto?.url != null) {
-            val url: String? = curPhoto.url
-            val annotation: String? = curPhoto.annotation
-            Picasso.with(applicationContext).load(url).into(holder.imageView)
-            if (annotation != null && annotation != "")
-                holder.imageView?.setOnClickListener {
-                    Toast.makeText(
-                        applicationContext,
-                        annotation, Toast.LENGTH_SHORT
-                    ).show()
-                }
-        } else
-            holder.imageView = null
-
+        lateinit var url: String
+        var annotation: String?
+        photos[position]!!.also {
+            url = it.url!!
+            annotation = it.annotation
+        }
+        holder.also {
+            Picasso.with(applicationContext).load(url).into(it.imageView)
+            it.imageDescription.text = annotation
+        }
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var imageView: ImageView? = null
+        var imageView: ImageView
+        var imageDescription: TextView
+
 
         init {
             imageView = itemView.findViewById(R.id.gallery_photo)
+            imageDescription = itemView.findViewById(R.id.gallery_photo_description)
         }
     }
 

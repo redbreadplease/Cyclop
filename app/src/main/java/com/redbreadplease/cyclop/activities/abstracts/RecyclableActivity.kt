@@ -1,6 +1,7 @@
 package com.redbreadplease.cyclop.activities.abstracts
 
 import android.view.View
+import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -15,12 +16,19 @@ import com.redbreadplease.cyclop.retrofit.pojos.NewsPost
 import kotlin.concurrent.thread
 
 abstract class RecyclableActivity : BaseActivity() {
+    protected lateinit var newsRecyclerview: RecyclerView
+    private var newsAdapter: RecyclerViewAdapter? = null
+    private lateinit var newsSwipeRefresher: SwipeRefreshLayout
+
+    protected lateinit var searchRecyclerview: RecyclerView
+    private lateinit var searchAdapter: RecyclerViewAdapter
+    lateinit var searchSwipeRefresher: SwipeRefreshLayout
+
     private var galleryRecyclerview: RecyclerView? = null
     private var galleryAdapter: GalleryRecyclerviewAdapter? = null
     var gallerySwipeRefresher: SwipeRefreshLayout? = null
-    private var newsRecyclerview: RecyclerView? = null
-    private var newsAdapter: RecyclerViewAdapter? = null
-    var newsSwipeRefresher: SwipeRefreshLayout? = null
+
+    private lateinit var centerProgressBar: ProgressBar
 
     fun setActivityView(activityType: ActivityType) {
         setNavbar()
@@ -28,22 +36,30 @@ abstract class RecyclableActivity : BaseActivity() {
         when (activityType) {
             ActivityType.NEWS -> {
                 setNewsRecyclerview()
+                setSearchRecyclerview()
+
+                setCenterProgressBar()
+
                 setNewsSwipeRefresher()
-            }
-            ActivityType.SEARCH -> {
-                setNewsRecyclerview()
+                setNewsActivityClickableZones()
+
                 setSearchSwipeRefresher()
                 setSearchActivityClickableZones()
             }
-            ActivityType.PLANET -> {
+            ActivityType.GALLERY -> {
                 setGalleryRecyclerview()
                 setGallerySwipeRefresher()
             }
-            ActivityType.CONSTELLATIONS -> {
+            ActivityType.VR_MENU -> {
                 setARMenuActivityClickableZones()
+            }
+            ActivityType.APP_MENU -> {
+
             }
         }
     }
+
+    abstract fun setNewsActivityClickableZones()
 
     abstract fun setARMenuActivityClickableZones()
 
@@ -55,23 +71,44 @@ abstract class RecyclableActivity : BaseActivity() {
                 findViewById<TextView>(R.id.nothing_found).text =
                     R.string.noPostsFound.toString()
                 findViewById<TextView>(R.id.nothing_found).visibility = View.VISIBLE
-                newsRecyclerview?.adapter = null
+                newsRecyclerview.adapter = null
             }
             else -> {
                 newsAdapter = RecyclerViewAdapter(list, this)
-                newsRecyclerview?.adapter = newsAdapter
+                newsRecyclerview.adapter = newsAdapter
+                findViewById<TextView>(R.id.nothing_found).visibility = View.GONE
+            }
+        }
+    }
+
+    fun setSearchAdapter(list: MutableList<NewsPost?>) {
+        when (list.size) {
+            0 -> {
+                findViewById<TextView>(R.id.nothing_found).also {
+                    it.text = getText(R.string.noPostsFound)
+                    it.visibility = View.VISIBLE
+                }
+                searchRecyclerview.adapter = null
+            }
+            else -> {
+                searchSwipeRefresher.visibility = View.VISIBLE
+                searchAdapter = RecyclerViewAdapter(list, this)
+                searchRecyclerview.also {
+                    it.visibility = View.VISIBLE
+                    it.adapter = searchAdapter
+                }
                 findViewById<TextView>(R.id.nothing_found).visibility = View.GONE
             }
         }
     }
 
     fun setGalleryAdapter(list: MutableList<GalleryPhoto?>) {
-        //TODO findViewById<GifImageView>(R.id.loading_gif).setVisibility(View.INVISIBLE)
         when (list.size) {
             0 -> {
-                findViewById<TextView>(R.id.nothing_found).text =
-                    R.string.noPhotoFound.toString()
-                findViewById<TextView>(R.id.nothing_found).visibility = View.VISIBLE
+                findViewById<TextView>(R.id.nothing_found).also {
+                    it.text = getText(R.string.noPhotoFound)
+                    it.visibility = View.VISIBLE
+                }
                 galleryRecyclerview?.adapter = null
             }
             else -> {
@@ -82,54 +119,66 @@ abstract class RecyclableActivity : BaseActivity() {
         }
     }
 
+    private fun setCenterProgressBar() {
+        if (!::centerProgressBar.isInitialized)
+            centerProgressBar = findViewById(R.id.progress_bar)
+    }
+
     private fun setNewsRecyclerview() {
-        if (newsRecyclerview == null) {
-            newsRecyclerview = findViewById(R.id.recyclerview)
-            newsRecyclerview?.layoutManager = LinearLayoutManager(this)
+        if (!::newsRecyclerview.isInitialized) {
+            newsRecyclerview = findViewById(R.id.news_recyclerview)
+            newsRecyclerview.layoutManager = LinearLayoutManager(this)
+        }
+    }
+
+    private fun setSearchRecyclerview() {
+        if (!::searchRecyclerview.isInitialized) {
+            searchRecyclerview = findViewById(R.id.search_recyclerview)
+            searchRecyclerview.layoutManager = LinearLayoutManager(this)
         }
     }
 
     private fun setGalleryRecyclerview() {
         if (galleryRecyclerview == null) {
-            galleryRecyclerview = findViewById(R.id.recyclerview)
+            galleryRecyclerview = findViewById(R.id.gallery_recyclerview)
             galleryRecyclerview!!.layoutManager = GridLayoutManager(this, 1)
         }
     }
 
     private fun setNewsSwipeRefresher() {
-        /* if (newsSwipeRefresher == null) {
-            newsSwipeRefresher = findViewById(R.id.swipe_refresher)
-            newsSwipeRefresher!!.setProgressBackgroundColorSchemeColor(
-                getResources().getColor(
-                    R.color.colorSpaceBar
-                )
+        if (!::newsSwipeRefresher.isInitialized)
+            newsSwipeRefresher = findViewById(R.id.news_swipe_refresher_including_recyclerview)
+        newsSwipeRefresher.setProgressBackgroundColorSchemeColor(
+            getResources().getColor(
+                R.color.colorSpaceBar
             )
-            newsSwipeRefresher!!.setColorSchemeColors(getResources().getColor(R.color.colorC6F))
-            newsSwipeRefresher!!.setOnRefreshListener(SwipeRefreshLayout.OnRefreshListener {
-                thread {
-                    tryToShowNews()
-                    newsSwipeRefresher?.setRefreshing(false)
-                }
-            })
-        } */
+        )
+        newsSwipeRefresher.setColorSchemeColors(getResources().getColor(R.color.colorC6F))
+        newsSwipeRefresher.setOnRefreshListener {
+            thread {
+                tryToShowNews()
+                newsSwipeRefresher.setRefreshing(false)
+            }
+        }
     }
 
     private fun setSearchSwipeRefresher() {
-        /* if (newsSwipeRefresher == null) {
-            newsSwipeRefresher = findViewById(R.id.swipe_refresher)
-            newsSwipeRefresher?.setProgressBackgroundColorSchemeColor(
+        if (!::searchSwipeRefresher.isInitialized)
+            searchSwipeRefresher = findViewById(R.id.search_swipe_refresher_including_recyclerview)
+        searchSwipeRefresher.also {
+            it.setProgressBackgroundColorSchemeColor(
                 getResources().getColor(
                     R.color.colorSpaceBar
                 )
             )
-            newsSwipeRefresher?.setColorSchemeColors(getResources().getColor(R.color.colorC6F))
-            newsSwipeRefresher?.setOnRefreshListener(SwipeRefreshLayout.OnRefreshListener {
+            it.setColorSchemeColors(getResources().getColor(R.color.colorC6F))
+            it.setOnRefreshListener(SwipeRefreshLayout.OnRefreshListener {
                 thread {
                     handleSearchRequest()
-                    newsSwipeRefresher?.setRefreshing(false)
+                    it.setRefreshing(false)
                 }
             })
-        } */
+        }
     }
 
     private fun setGallerySwipeRefresher() {
@@ -150,7 +199,21 @@ abstract class RecyclableActivity : BaseActivity() {
         } */
     }
 
+    protected fun hideProgressBar() {
+        runOnUiThread {
+            centerProgressBar.visibility = View.GONE
+        }
+    }
+
+    protected fun showProgressBar() {
+        runOnUiThread {
+            centerProgressBar.visibility = View.VISIBLE
+        }
+    }
+
     fun isNewsAdapterSet(): Boolean = newsAdapter != null
+
+    fun isSearchAdapterSet(): Boolean = ::searchAdapter.isInitialized
 
     fun isGalleryAdapterSet(): Boolean = galleryAdapter != null
 
