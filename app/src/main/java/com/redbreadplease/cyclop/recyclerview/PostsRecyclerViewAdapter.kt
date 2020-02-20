@@ -14,10 +14,10 @@ import com.redbreadplease.cyclop.retrofit.pojos.NewsPost
 import com.squareup.picasso.Picasso
 
 
-class RecyclerViewAdapter(
+class PostsRecyclerViewAdapter(
     private val posts: MutableList<NewsPost?>,
     private val UIContext: Context
-) : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<PostsRecyclerViewAdapter.ViewHolder>() {
 
     override fun getItemCount(): Int = posts.size
 

@@ -6,16 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.redbreadplease.cyclop.R
 import com.redbreadplease.cyclop.retrofit.pojos.GalleryPhoto
 import com.squareup.picasso.Picasso
 
-class GalleryRecyclerviewAdapter(
+class GalleryRecyclerViewAdapter(
     private val photos: MutableList<GalleryPhoto?>,
     private val applicationContext: Context
-) : RecyclerView.Adapter<GalleryRecyclerviewAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<GalleryRecyclerViewAdapter.ViewHolder>() {
 
     override fun getItemCount(): Int = photos.size
 

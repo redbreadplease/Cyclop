@@ -9,6 +9,7 @@
     <dimen name="postAnnotationTextSize">14sp</dimen>
     <dimen name="postBodyTextSize">14sp</dimen>
 
+    <dimen name="toolbarShadowHeight">10dp</dimen>
     <dimen name="defaultToolbarHeight">55dp</dimen>
     <dimen name="defaultToolbarElementsHeight">45dp</dimen>
 
