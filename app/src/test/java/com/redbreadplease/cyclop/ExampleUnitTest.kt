@@ -1,5 +1,6 @@
 package com.redbreadplease.cyclop
 
+import com.badlogic.gdx.math.Vector3
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
@@ -16,7 +17,6 @@ class ExampleUnitTest {
 
     @Test
     fun justTest() {
-        for (i in -10..10)
-            println(i)
+        println(Vector3.Z.z)
     }
 }

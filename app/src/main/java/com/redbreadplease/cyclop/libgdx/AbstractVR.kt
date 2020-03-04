@@ -10,42 +10,50 @@ import com.badlogic.gdx.graphics.g3d.attributes.ColorAttribute
 import com.badlogic.gdx.graphics.g3d.environment.DirectionalLight
 import com.badlogic.gdx.graphics.g3d.utils.CameraInputController
 import com.badlogic.gdx.math.Vector3
+import kotlin.concurrent.thread
 
 
 abstract class AbstractVR : ApplicationAdapter() {
-    protected var cam: PerspectiveCamera? = null
-    protected var camController: CameraInputController? = null
-    private val startPos = floatArrayOf(-1700f, -1700f, -1700f)
-    private val lookAt = floatArrayOf(0f, 0f, 0f)
+    private val startPos = Vector3(0f, 0f, 0f)
+
+    protected lateinit var doNotKnowHowToCall: DoNotKnowHowToCall
+
+    protected lateinit var cam: PerspectiveCamera
+    protected lateinit var camController: CameraInputController
     protected var instances: MutableList<ModelInstance> = mutableListOf()
-    protected var modelBatch: ModelBatch? = null
-    protected var environment: Environment? = null
+    protected lateinit var modelBatch: ModelBatch
+    protected lateinit var environment: Environment
 
     override fun create() {
-        setEnvironment()
+        setDoNotHowToCall()
         setCamera()
+        setEnvironment()
         setCameraController()
         setModelBatch()
         setModels()
+        startResettingCameraLookDirectionThread()
     }
 
     private fun setCamera() {
         cam = PerspectiveCamera(
-            120f /*67f*/,
+            67f /*120f*/,
             Gdx.graphics.width.toFloat(),
             Gdx.graphics.height.toFloat()
-        )
-        cam!!.position[startPos[0], startPos[1]] = startPos[2]
-        cam!!.lookAt(lookAt[0], lookAt[0], lookAt[0])
-        cam!!.near = 0f
-        cam!!.far = 4000f
-        cam!!.update()
+        ).apply {
+            this.near = 0f
+            this.far = 4000f
+            this.position[startPos.x, startPos.y] = startPos.z
+        }.also {
+            it.lookAt(doNotKnowHowToCall.camLookingAt)
+            it.update()
+        }
     }
 
     private fun setEnvironment() {
-        environment = Environment()
-        environment!!.set(ColorAttribute(ColorAttribute.AmbientLight, 0.4f, 0.4f, 0.4f, 1f))
-        environment!!.add(DirectionalLight().set(0.8f, 0.8f, 0.8f, 10f, 10f, 70f))
+        environment = Environment().also {
+            it.set(ColorAttribute(ColorAttribute.AmbientLight, 0.4f, 0.4f, 0.4f, 1f))
+            it.add(DirectionalLight().set(0.8f, 0.8f, 0.8f, 10f, 10f, 70f))
+        }
     }
 
     private fun setModelBatch() {
@@ -53,20 +61,34 @@ abstract class AbstractVR : ApplicationAdapter() {
     }
 
     private fun setModels() {
-        Models().getModelInstances().forEach {
-            instances.add(it)
-        }
+        Models().getModelInstances().forEach { instances.add(it) }
     }
 
     private fun setCameraController() {
-        camController = CameraInputController(cam)
-        Gdx.input.inputProcessor = camController
+        camController = CameraInputController(cam).also { Gdx.input.inputProcessor = it }
+    }
 
+    private fun setDoNotHowToCall() {
+        doNotKnowHowToCall = DoNotKnowHowToCall()
+    }
+
+    private fun startResettingCameraLookDirectionThread() {
+        thread {
+            while (true) {
+                doNotKnowHowToCall.resetCamLookingInDirection()
+            }
+        }
+    }
+
+    protected fun resetCameraLookingAt() {
+        val direction = doNotKnowHowToCall.camLookingAt
+        if (!direction.x.isNaN() && !direction.x.isInfinite() && !direction.y.isNaN() && !direction.y.isInfinite() && !direction.z.isNaN() && !direction.z.isInfinite())
+            cam.lookAt(direction)
     }
 
     override fun dispose() {
-        modelBatch!!.dispose()
+        modelBatch.dispose()
     }
 
-    fun getCamPosition(): Vector3 = Vector3(cam!!.position.x, cam!!.position.y, cam!!.position.z)
+    fun getCamPosition(): Vector3 = Vector3(cam.position.x, cam.position.y, cam.position.z)
 }

@@ -1,10 +1,23 @@
 <resources>
 
-    <style name="noAnimTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="NewsBarActivity" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowAnimationStyle">@null</item>
         <item name="android:statusBarColor">@color/surface</item>
         <item name="android:shadowColor">@color/onSurface</item>
         <item name="android:screenOrientation">portrait</item>
+    </style>
+
+    <style name="GalleryActivity" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:statusBarColor">@color/surface</item>
+        <item name="android:shadowColor">@color/onSurface</item>
+        <item name="android:screenOrientation">portrait</item>
+    </style>
+
+    <style name="VRActivity" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:screenOrientation">sensorPortrait</item>
     </style>
 
     <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">

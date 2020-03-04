@@ -23,4 +23,9 @@
     <string name="newsPostsBethDescription">Separating beth</string>
 
     <string name="searchFrameHint">Your request</string>
+
+    <string name="buttonDebugName">Debug</string>
+    <string name="buttonSettingsName">Settings</string>
+    <string name="buttonInfoName">About us and app</string>
+    <string name="buttonHelpName">Usage guide</string>
 </resources>

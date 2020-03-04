@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val intent = Intent(this, NewsActivity::class.java)
+        val intent = Intent(this, AppMenuActivity::class.java)
         startActivity(intent)
         finish()
     }

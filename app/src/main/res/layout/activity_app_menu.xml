@@ -11,6 +11,106 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/appMenuUpIndent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation_view"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/surface"
+            android:gravity="center_vertical">
+
+            <Button
+                android:layout_width="@dimen/appMenuSectionsButtonsSideSize"
+                android:layout_height="@dimen/appMenuSectionsButtonsSideSize"
+                android:layout_margin="@dimen/appMenuSectionsButtonPadding"
+                android:background="@color/onSurface"
+                android:gravity="center_vertical" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/appMenuSectionsButtonsSideSize"
+                android:gravity="center_vertical"
+                android:text="@string/buttonInfoName"
+                android:textColor="@color/onSurface"
+                android:textSize="@dimen/buttonNameTextSize" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/surface"
+            android:gravity="center_vertical">
+
+            <Button
+                android:layout_width="@dimen/appMenuSectionsButtonsSideSize"
+                android:layout_height="@dimen/appMenuSectionsButtonsSideSize"
+                android:layout_margin="@dimen/appMenuSectionsButtonPadding"
+                android:background="@color/onSurface"
+                android:gravity="center_vertical" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/appMenuSectionsButtonsSideSize"
+                android:gravity="center_vertical"
+                android:text="@string/buttonSettingsName"
+                android:textColor="@color/onSurface"
+                android:textSize="@dimen/buttonNameTextSize" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/surface"
+            android:gravity="center_vertical">
+
+            <Button
+                android:layout_width="@dimen/appMenuSectionsButtonsSideSize"
+                android:layout_height="@dimen/appMenuSectionsButtonsSideSize"
+                android:layout_margin="@dimen/appMenuSectionsButtonPadding"
+                android:background="@color/onSurface"
+                android:gravity="center_vertical" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/appMenuSectionsButtonsSideSize"
+                android:gravity="center_vertical"
+                android:text="@string/buttonHelpName"
+                android:textColor="@color/onSurface"
+                android:textSize="@dimen/buttonNameTextSize" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/surface"
+            android:gravity="center_vertical">
+
+            <Button
+                android:layout_width="@dimen/appMenuSectionsButtonsSideSize"
+                android:layout_height="@dimen/appMenuSectionsButtonsSideSize"
+                android:layout_margin="@dimen/appMenuSectionsButtonPadding"
+                android:background="@color/onSurface"
+                android:gravity="center_vertical" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/appMenuSectionsButtonsSideSize"
+                android:gravity="center_vertical"
+                android:text="@string/buttonDebugName"
+                android:textColor="@color/onSurface"
+                android:textSize="@dimen/buttonNameTextSize" />
+        </LinearLayout>
+    </LinearLayout>
+
     <include
         layout="@layout/navbar"
         app:layout_constraintBottom_toBottomOf="parent"

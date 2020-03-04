@@ -47,8 +47,8 @@ class PostsRecyclerViewAdapter(
 
         holder.bodyView?.visibility = View.GONE
         holder.showPostBody?.also {
-            it.setClickable(true)
-            it.setFocusable(true)
+            it.isClickable = true
+            it.isFocusable = true
             it.setOnClickListener {
                 holder.annotationView!!.startAnimation(
                     AnimationUtils.loadAnimation(
