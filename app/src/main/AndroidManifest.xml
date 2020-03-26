@@ -27,7 +27,10 @@
             android:theme="@style/GalleryActivity" />
         <activity
             android:name=".activities.AppMenuActivity"
-            android:theme="@style/NewsBarActivity" />
+            android:theme="@style/AppMenuActivity" />
+        <activity
+            android:name=".activities.DebugActivity"
+            android:theme="@style/DebugActivity" />
         <activity
             android:name=".activities.SplashActivity"
             android:theme="@style/SplashTheme">

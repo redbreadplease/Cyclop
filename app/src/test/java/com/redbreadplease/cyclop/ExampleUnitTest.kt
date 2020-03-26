@@ -1,6 +1,7 @@
 package com.redbreadplease.cyclop
 
 import com.badlogic.gdx.math.Vector3
+import com.redbreadplease.cyclop.libgdx.DoNotKnowHowToCall
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
@@ -17,6 +18,8 @@ class ExampleUnitTest {
 
     @Test
     fun justTest() {
-        println(Vector3.Z.z)
+        val d = DoNotKnowHowToCall()
+
+        println(d.getProjectionVectorOnPlane(Vector3(1f, 1f, 0f), Vector3.X))
     }
 }

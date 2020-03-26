@@ -46,8 +46,7 @@
 
     <dimen name="AREntranceLogoSideSize">150dp</dimen>
 
-    <dimen name="appMenuUpIndent">80dp</dimen>
     <dimen name="appMenuSectionsHeight">50dp</dimen>
-    <dimen name="appMenuSectionsButtonsSideSize">25dp</dimen>
+    <dimen name="appMenuSectionsButtonsSideSize">35dp</dimen>
     <dimen name="appMenuSectionsButtonPadding">10dp</dimen>
 </resources>

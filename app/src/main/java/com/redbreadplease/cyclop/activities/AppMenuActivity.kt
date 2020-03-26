@@ -1,6 +1,8 @@
 package com.redbreadplease.cyclop.activities
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import com.redbreadplease.cyclop.R
 import com.redbreadplease.cyclop.activities.abstracts.BaseActivity
 import com.redbreadplease.cyclop.stuff.ActivityType
@@ -18,5 +20,9 @@ class AppMenuActivity : BaseActivity() {
             setNavbar()
             setActiveNavbarButton(ActivityType.APP_MENU)
         }
+    }
+
+    fun startDebugActivity(view: View) {
+        startActivity(Intent(this, DebugActivity::class.java))
     }
 }

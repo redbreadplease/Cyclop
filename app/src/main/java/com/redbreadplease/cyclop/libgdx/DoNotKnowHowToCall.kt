@@ -7,11 +7,11 @@ import kotlin.math.cos
 import kotlin.math.sin
 
 class DoNotKnowHowToCall {
-    private var gravityDirection: Vector3 = Vector3(0f, 0f, 0f)
-    private var magneticFlowDirection: Vector3 = Vector3(0f, 0f, 0f)
+    var gravityDirection: Vector3 = Vector3(0f, 0f, 0f)
+    var magneticFlowDirection: Vector3 = Vector3(0f, 0f, 0f)
 
-    private val smoothMagneticFlowValuesCoefficient = 70
-    private val smoothAccelerometerValuesCoefficient = 170
+    private val smoothMagneticFlowValuesCoefficient = 10
+    private val smoothAccelerometerValuesCoefficient = 10
     private val smoothCameraDirectionChangingCoefficient = 1
 
     companion object {
@@ -20,37 +20,19 @@ class DoNotKnowHowToCall {
 
     var camLookingAt: Vector3 = Vector3(0f, 0f, 0f)
 
+    fun getHorizontalAngle() =
+        getHorizontalAngle(
+            getProjectionVectorOnPlane(gravityDirection, magneticFlowDirection),
+            getProjectionVectorOnPlane(gravityDirection, Vector3.Z)
+        )
+
     fun resetCamLookingInDirection() {
-        lateinit var expectedMagneticFlowDirection: Vector3
-        lateinit var zProjectionOnGPerpendicularPlane: Vector3
-        gravityDirection.also { gd ->
-            (gd.x * gd.x + gd.y * gd.y + gd.z * gd.z).also { gdSumSq ->
-                magneticFlowDirection.also { mf ->
-                    (-(gd.x * mf.x + gd.y * mf.y + gd.z * mf.z) / gdSumSq).also { k ->
-                        expectedMagneticFlowDirection =
-                            Vector3(mf.x + gd.x * k, mf.y + gd.y * k, mf.z + gd.z * k)
-                    }
-                }
-                Vector3.Z.also { vz ->
-                    (-(gd.x * vz.x + gd.y * vz.y + gd.z * vz.z) / gdSumSq).also { k ->
-                        zProjectionOnGPerpendicularPlane =
-                            Vector3(vz.x + gd.x * k, vz.y + gd.y * k, vz.z + gd.z * k)
-                    }
-                }
-            }
-        }
-        var angleZProjectionAndMagneticFlow = getAngle(
-            expectedMagneticFlowDirection,
+        val zProjectionOnGPerpendicularPlane: Vector3 =
+            getProjectionVectorOnPlane(gravityDirection, Vector3.Z)
+        val angleZProjectionAndMagneticFlow = getHorizontalAngle(
+            getProjectionVectorOnPlane(gravityDirection, magneticFlowDirection),
             zProjectionOnGPerpendicularPlane
         )
-
-        if (getAngle(
-                gravityDirection,
-                expectedMagneticFlowDirection.crs(zProjectionOnGPerpendicularPlane)
-            ) < PI / 2
-        )
-            angleZProjectionAndMagneticFlow = (PI * 2).toFloat() - angleZProjectionAndMagneticFlow
-
 
         angleZProjectionAndMagneticFlow.also { fi ->
             getAngle(Vector3.Y, zProjectionOnGPerpendicularPlane).also { theta ->
@@ -65,7 +47,42 @@ class DoNotKnowHowToCall {
         }
     }
 
-    private fun getAngle(v1: Vector3, v2: Vector3) = acos(
+    private fun getHorizontalAngle(
+        expectedMagneticFlowDirection: Vector3,
+        zProjectionOnGPerpendicularPlane: Vector3
+    ): Float =
+        getAngle(
+            expectedMagneticFlowDirection,
+            zProjectionOnGPerpendicularPlane
+        ).let {
+            if (getAngle(
+                    gravityDirection,
+                    expectedMagneticFlowDirection.crs(zProjectionOnGPerpendicularPlane)
+                ) < PI / 2
+            )
+                (PI * 2).toFloat() - it
+            else
+                it
+        }
+
+    fun getProjectionVectorOnPlane(
+        orthogonalPlaneVector: Vector3,
+        vectorToProject: Vector3
+    ): Vector3 = orthogonalPlaneVector.let { orthogonal ->
+        (orthogonal.x * orthogonal.x + orthogonal.y * orthogonal.y + orthogonal.z * orthogonal.z).let { sumSq ->
+            vectorToProject.let { vp ->
+                (-(orthogonal.x * vp.x + orthogonal.y * vp.y + orthogonal.z * vp.z) / sumSq).let { k ->
+                    Vector3(
+                        vp.x + orthogonal.x * k,
+                        vp.y + orthogonal.y * k,
+                        vp.z + orthogonal.z * k
+                    )
+                }
+            }
+        }
+    }
+
+    fun getAngle(v1: Vector3, v2: Vector3) = acos(
         Vector3.dot(v1.x, v1.y, v1.z, v2.x, v2.y, v2.z) / (v1.len() * v2.len())
     )
 

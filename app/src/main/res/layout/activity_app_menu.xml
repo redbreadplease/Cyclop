@@ -14,22 +14,28 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="@dimen/appMenuUpIndent"
+        android:background="@color/surface"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/bottom_navigation_view"
         app:layout_constraintTop_toTopOf="parent">
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginVertical="8dp"
+            android:src="@color/background" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/surface"
             android:gravity="center_vertical">
 
-            <Button
+            <ImageView
                 android:layout_width="@dimen/appMenuSectionsButtonsSideSize"
                 android:layout_height="@dimen/appMenuSectionsButtonsSideSize"
                 android:layout_margin="@dimen/appMenuSectionsButtonPadding"
-                android:background="@color/onSurface"
+                android:src="@drawable/ic_m_community_dark"
                 android:gravity="center_vertical" />
 
             <TextView
@@ -41,18 +47,23 @@
                 android:textSize="@dimen/buttonNameTextSize" />
         </LinearLayout>
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginVertical="8dp"
+            android:src="@color/background" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/surface"
             android:gravity="center_vertical">
 
-            <Button
+            <ImageView
                 android:layout_width="@dimen/appMenuSectionsButtonsSideSize"
                 android:layout_height="@dimen/appMenuSectionsButtonsSideSize"
                 android:layout_margin="@dimen/appMenuSectionsButtonPadding"
-                android:background="@color/onSurface"
+                android:src="@drawable/ic_m_info_dark"
                 android:gravity="center_vertical" />
 
             <TextView
@@ -64,18 +75,23 @@
                 android:textSize="@dimen/buttonNameTextSize" />
         </LinearLayout>
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginVertical="8dp"
+            android:src="@color/background" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/surface"
             android:gravity="center_vertical">
 
-            <Button
+            <ImageView
                 android:layout_width="@dimen/appMenuSectionsButtonsSideSize"
                 android:layout_height="@dimen/appMenuSectionsButtonsSideSize"
                 android:layout_margin="@dimen/appMenuSectionsButtonPadding"
-                android:background="@color/onSurface"
+                android:src="@drawable/ic_m_question_mark_dark"
                 android:gravity="center_vertical" />
 
             <TextView
@@ -87,28 +103,39 @@
                 android:textSize="@dimen/buttonNameTextSize" />
         </LinearLayout>
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginVertical="8dp"
+            android:src="@color/background" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/surface"
-            android:gravity="center_vertical">
+            android:gravity="center_vertical"
+            android:onClick="startDebugActivity">
 
-            <Button
+            <ImageView
                 android:layout_width="@dimen/appMenuSectionsButtonsSideSize"
                 android:layout_height="@dimen/appMenuSectionsButtonsSideSize"
                 android:layout_margin="@dimen/appMenuSectionsButtonPadding"
-                android:background="@color/onSurface"
-                android:gravity="center_vertical" />
+                android:src="@drawable/ic_m_bug_dark"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/appMenuSectionsButtonsSideSize"
-                android:gravity="center_vertical"
                 android:text="@string/buttonDebugName"
                 android:textColor="@color/onSurface"
                 android:textSize="@dimen/buttonNameTextSize" />
         </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginVertical="8dp"
+            android:src="@color/background" />
     </LinearLayout>
 
     <include

@@ -1,5 +1,17 @@
 <resources>
 
+    <style name="AppMenuActivity" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:statusBarColor">@color/surface</item>
+        <item name="android:shadowColor">@color/onSurface</item>
+        <item name="android:screenOrientation">portrait</item>
+    </style>
+
+    <style name="DebugActivity" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:statusBarColor">@color/surface</item>
+        <item name="android:shadowColor">@color/onSurface</item>
+        <item name="android:screenOrientation">sensorPortrait</item>
+    </style>
+
     <style name="NewsBarActivity" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowAnimationStyle">@null</item>
         <item name="android:statusBarColor">@color/surface</item>

@@ -1,6 +1,8 @@
 package com.redbreadplease.cyclop.activities.abstracts
 
 import android.content.Intent
+import android.content.pm.ActivityInfo
+import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.get
@@ -11,6 +13,11 @@ import kotlin.concurrent.thread
 
 abstract class BaseActivity : AppCompatActivity() {
     private var currentPageId: Int = -1
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+    }
 
     fun setNavbar() {
         bottom_navigation_view.also {
